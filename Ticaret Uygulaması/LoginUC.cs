@@ -10,28 +10,28 @@ using System.Windows.Forms;
 
 namespace Ticaret_Uygulaması
 {
-	public partial class LoginUC : UserControl
+	public partial class LogInUC : UserControl
 	{
-		public LoginUC()
+		public LogInUC()
 		{
 			InitializeComponent();
 		}
 
-		private void checkBox1_CheckedChanged(object sender, EventArgs e)
+		private void emailText_Click(object sender, EventArgs e)
 		{
-			if (gösterChcBx.Checked) 
+
+		}
+
+		private void gösterCb_CheckedChanged(object sender, EventArgs e)
+		{
+			if(gösterCb.Checked)
 			{
-				passwordLogin.PasswordChar = '\0';
+				passwordTxt.PasswordChar = '\0';
 			}
 			else
 			{
-				passwordLogin.PasswordChar = '*';
+				passwordTxt.PasswordChar = '*';
 			}
-		}
-
-		private void LoginUC_Load(object sender, EventArgs e)
-		{
-
 		}
 	}
 }

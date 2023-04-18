@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace Ticaret_Uygulaması
 {
-	public partial class koydolUC : UserControl
+	public partial class SignInUC : UserControl
 	{
-		public koydolUC()
+		public SignInUC()
 		{
 			InitializeComponent();
 		}
 
-		private void gösterChcBx_CheckedChanged(object sender, EventArgs e)
+		private void gösterCb_CheckedChanged(object sender, EventArgs e)
 		{
-			if (gösterChcBx.Checked)
+			if(gösterCb.Checked)
 			{
-				passwordLogin.PasswordChar = '\0';
+				passwordTxt.PasswordChar = '\0';
 			}
 			else
 			{
-				passwordLogin.PasswordChar = '*';
+				passwordTxt.PasswordChar = '*';
 			}
 		}
 	}

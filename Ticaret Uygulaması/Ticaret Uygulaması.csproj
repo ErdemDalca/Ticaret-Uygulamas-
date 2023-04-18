@@ -54,12 +54,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LogInUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LogInUC.Designer.cs">
+      <DependentUpon>LogInUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignInUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SignInUC.Designer.cs">
+      <DependentUpon>SignInUC.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BackSpace.resx">
       <DependentUpon>BackSpace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInUC.resx">
+      <DependentUpon>LogInUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignInUC.resx">
+      <DependentUpon>SignInUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
