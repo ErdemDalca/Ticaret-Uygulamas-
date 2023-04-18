@@ -29,12 +29,13 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BackSpace));
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.userLoginBtn = new System.Windows.Forms.Button();
-			this.newUserBtn = new System.Windows.Forms.Button();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// panel1
+			// textBox1
 			// 
 			this.textBox1.Location = new System.Drawing.Point(412, 260);
 			this.textBox1.Name = "textBox1";
@@ -43,7 +44,7 @@
 			this.textBox1.Text = "Email Giriniz...";
 			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
 			// 
-			// userLoginBtn
+			// textBox2
 			// 
 			this.textBox2.Location = new System.Drawing.Point(412, 302);
 			this.textBox2.Name = "textBox2";
@@ -52,7 +53,7 @@
 			this.textBox2.Text = "Şifre Giriniz...";
 			this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
 			// 
-			// newUserBtn
+			// button1
 			// 
 			this.button1.BackColor = System.Drawing.Color.Lime;
 			this.button1.Location = new System.Drawing.Point(412, 349);
@@ -80,26 +81,29 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(1024, 768);
-			this.Controls.Add(this.newUserBtn);
-			this.Controls.Add(this.userLoginBtn);
-			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.button2);
+			this.Controls.Add(this.button1);
+			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.textBox1);
 			this.DoubleBuffered = true;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "BackSpace";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "LogIn";
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
 		#endregion
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.Button userLoginBtn;
-		private System.Windows.Forms.Button newUserBtn;
+
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button button2;
 	}
 }
 

@@ -12,29 +12,24 @@ namespace Ticaret_Uygulaması
 {
 	public partial class BackSpace : Form
 	{
-		private LoginUC login;
-		private koydolUC signin;
-
 		public BackSpace()
 		{
 			InitializeComponent();
-
-			login = new LoginUC();
-			signin = new koydolUC();
 		}
 
-		private void userLoginBtn_Click(object sender, EventArgs e)
+		private void textBox1_TextChanged(object sender, EventArgs e)
 		{
-			panel1.Controls.Clear();
-			panel1.Controls.Add(login);
+			
 		}
 
-		private void newUserBtn_Click(object sender, EventArgs e)
+		private void textBox2_TextChanged(object sender, EventArgs e)
 		{
-			LoginUC nesne = new LoginUC();
+			
+		}
 
-			panel1.Controls.Clear();
-			panel1.Controls.Add(signin);
+		private void button2_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
 		}
 	}
 }
