@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.gösterCb = new System.Windows.Forms.CheckBox();
-			this.loginBtn = new System.Windows.Forms.Button();
+			this.signinBtn = new System.Windows.Forms.Button();
 			this.passwordLbl = new System.Windows.Forms.Label();
 			this.emailLbl = new System.Windows.Forms.Label();
 			this.passwordTxt = new System.Windows.Forms.TextBox();
@@ -39,26 +39,29 @@
 			// gösterCb
 			// 
 			this.gösterCb.AutoSize = true;
-			this.gösterCb.Location = new System.Drawing.Point(283, 147);
+			this.gösterCb.BackColor = System.Drawing.Color.Transparent;
+			this.gösterCb.Location = new System.Drawing.Point(285, 148);
 			this.gösterCb.Name = "gösterCb";
 			this.gösterCb.Size = new System.Drawing.Size(18, 17);
 			this.gösterCb.TabIndex = 9;
-			this.gösterCb.UseVisualStyleBackColor = true;
+			this.gösterCb.UseVisualStyleBackColor = false;
 			this.gösterCb.CheckedChanged += new System.EventHandler(this.gösterCb_CheckedChanged);
 			// 
-			// loginBtn
+			// signinBtn
 			// 
-			this.loginBtn.Location = new System.Drawing.Point(75, 171);
-			this.loginBtn.Name = "loginBtn";
-			this.loginBtn.Size = new System.Drawing.Size(202, 23);
-			this.loginBtn.TabIndex = 8;
-			this.loginBtn.Text = "Giriş Yap";
-			this.loginBtn.UseVisualStyleBackColor = true;
+			this.signinBtn.Location = new System.Drawing.Point(77, 172);
+			this.signinBtn.Name = "signinBtn";
+			this.signinBtn.Size = new System.Drawing.Size(202, 23);
+			this.signinBtn.TabIndex = 8;
+			this.signinBtn.Text = "Kayıt Ol";
+			this.signinBtn.UseVisualStyleBackColor = true;
 			// 
 			// passwordLbl
 			// 
 			this.passwordLbl.AutoSize = true;
-			this.passwordLbl.Location = new System.Drawing.Point(37, 145);
+			this.passwordLbl.BackColor = System.Drawing.Color.Transparent;
+			this.passwordLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+			this.passwordLbl.Location = new System.Drawing.Point(39, 146);
 			this.passwordLbl.Name = "passwordLbl";
 			this.passwordLbl.Size = new System.Drawing.Size(32, 16);
 			this.passwordLbl.TabIndex = 6;
@@ -67,7 +70,9 @@
 			// emailLbl
 			// 
 			this.emailLbl.AutoSize = true;
-			this.emailLbl.Location = new System.Drawing.Point(29, 117);
+			this.emailLbl.BackColor = System.Drawing.Color.Transparent;
+			this.emailLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+			this.emailLbl.Location = new System.Drawing.Point(31, 118);
 			this.emailLbl.Name = "emailLbl";
 			this.emailLbl.Size = new System.Drawing.Size(40, 16);
 			this.emailLbl.TabIndex = 7;
@@ -77,7 +82,7 @@
 			// 
 			this.passwordTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.passwordTxt.Location = new System.Drawing.Point(75, 142);
+			this.passwordTxt.Location = new System.Drawing.Point(77, 143);
 			this.passwordTxt.Name = "passwordTxt";
 			this.passwordTxt.PasswordChar = '*';
 			this.passwordTxt.Size = new System.Drawing.Size(202, 22);
@@ -87,7 +92,7 @@
 			// 
 			this.emailTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.emailTxt.Location = new System.Drawing.Point(75, 114);
+			this.emailTxt.Location = new System.Drawing.Point(77, 115);
 			this.emailTxt.Name = "emailTxt";
 			this.emailTxt.Size = new System.Drawing.Size(202, 22);
 			this.emailTxt.TabIndex = 5;
@@ -96,12 +101,15 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.Transparent;
+			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.Controls.Add(this.gösterCb);
-			this.Controls.Add(this.loginBtn);
+			this.Controls.Add(this.signinBtn);
 			this.Controls.Add(this.passwordLbl);
 			this.Controls.Add(this.emailLbl);
 			this.Controls.Add(this.passwordTxt);
 			this.Controls.Add(this.emailTxt);
+			this.DoubleBuffered = true;
 			this.Name = "SignInUC";
 			this.Size = new System.Drawing.Size(336, 336);
 			this.ResumeLayout(false);
@@ -112,7 +120,7 @@
 		#endregion
 
 		private System.Windows.Forms.CheckBox gösterCb;
-		private System.Windows.Forms.Button loginBtn;
+		private System.Windows.Forms.Button signinBtn;
 		private System.Windows.Forms.Label passwordLbl;
 		private System.Windows.Forms.Label emailLbl;
 		private System.Windows.Forms.TextBox passwordTxt;

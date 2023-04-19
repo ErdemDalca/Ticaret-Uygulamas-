@@ -58,6 +58,8 @@
 			// emailLbl
 			// 
 			this.emailLbl.AutoSize = true;
+			this.emailLbl.BackColor = System.Drawing.Color.Transparent;
+			this.emailLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.emailLbl.Location = new System.Drawing.Point(31, 118);
 			this.emailLbl.Name = "emailLbl";
 			this.emailLbl.Size = new System.Drawing.Size(40, 16);
@@ -68,6 +70,8 @@
 			// passwordLbl
 			// 
 			this.passwordLbl.AutoSize = true;
+			this.passwordLbl.BackColor = System.Drawing.Color.Transparent;
+			this.passwordLbl.ForeColor = System.Drawing.Color.Transparent;
 			this.passwordLbl.Location = new System.Drawing.Point(39, 146);
 			this.passwordLbl.Name = "passwordLbl";
 			this.passwordLbl.Size = new System.Drawing.Size(32, 16);
@@ -86,23 +90,27 @@
 			// gösterCb
 			// 
 			this.gösterCb.AutoSize = true;
+			this.gösterCb.BackColor = System.Drawing.Color.Transparent;
 			this.gösterCb.Location = new System.Drawing.Point(285, 148);
 			this.gösterCb.Name = "gösterCb";
 			this.gösterCb.Size = new System.Drawing.Size(18, 17);
 			this.gösterCb.TabIndex = 3;
-			this.gösterCb.UseVisualStyleBackColor = true;
+			this.gösterCb.UseVisualStyleBackColor = false;
 			this.gösterCb.CheckedChanged += new System.EventHandler(this.gösterCb_CheckedChanged);
 			// 
 			// LogInUC
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.Transparent;
+			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.Controls.Add(this.gösterCb);
 			this.Controls.Add(this.loginBtn);
 			this.Controls.Add(this.passwordLbl);
 			this.Controls.Add(this.emailLbl);
 			this.Controls.Add(this.passwordTxt);
 			this.Controls.Add(this.emailTxt);
+			this.DoubleBuffered = true;
 			this.Name = "LogInUC";
 			this.Size = new System.Drawing.Size(336, 336);
 			this.ResumeLayout(false);

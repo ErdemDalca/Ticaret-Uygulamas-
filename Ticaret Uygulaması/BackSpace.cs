@@ -20,6 +20,8 @@ namespace Ticaret_Uygulaması
 			InitializeComponent();
 			logIn = new LogInUC();
 			signIn = new SignInUC();
+
+			lb_Click(this, new EventArgs());
 		}
 
 		private void button2_Click(object sender, EventArgs e)

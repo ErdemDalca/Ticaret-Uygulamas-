@@ -45,9 +45,14 @@
 			// 
 			// lb
 			// 
-			this.lb.Location = new System.Drawing.Point(343, 563);
+			this.lb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lb.BackgroundImage")));
+			this.lb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.lb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.lb.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lb.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.lb.Location = new System.Drawing.Point(343, 532);
 			this.lb.Name = "lb";
-			this.lb.Size = new System.Drawing.Size(153, 52);
+			this.lb.Size = new System.Drawing.Size(162, 52);
 			this.lb.TabIndex = 1;
 			this.lb.Text = "giriş yap";
 			this.lb.UseVisualStyleBackColor = true;
@@ -55,9 +60,13 @@
 			// 
 			// kb
 			// 
-			this.kb.Location = new System.Drawing.Point(541, 563);
+			this.kb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("kb.BackgroundImage")));
+			this.kb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.kb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.kb.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.kb.Location = new System.Drawing.Point(517, 532);
 			this.kb.Name = "kb";
-			this.kb.Size = new System.Drawing.Size(138, 52);
+			this.kb.Size = new System.Drawing.Size(162, 52);
 			this.kb.TabIndex = 2;
 			this.kb.Text = "kayıt ol";
 			this.kb.UseVisualStyleBackColor = true;
