@@ -228,6 +228,12 @@
     <Compile Include="Specialmessagebox.Designer.cs">
       <DependentUpon>Specialmessagebox.cs</DependentUpon>
     </Compile>
+    <Compile Include="snglofferblock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="snglofferblock.Designer.cs">
+      <DependentUpon>snglofferblock.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BackSpace.resx">
       <DependentUpon>BackSpace.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Specialmessagebox.resx">
       <DependentUpon>Specialmessagebox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="snglofferblock.resx">
+      <DependentUpon>snglofferblock.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
