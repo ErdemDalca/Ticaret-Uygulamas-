@@ -63,7 +63,18 @@ namespace Ticaret_Uygulaması
 			{
 				var userCredential = await client.SignInWithEmailAndPasswordAsync(logIn.emailTxt.Text.Trim(),
 																			  logIn.passwordTxt.Text.Trim());
-				MessageBox.Show(userCredential.User.Info.Email);
+				//MessageBox.Show(userCredential.User.Info.Uid);
+
+				//buradan devam edecek giriş işlemi.
+
+				var menu = new MenuScreen();
+                this.Hide();//backspace'i kapattı/sakladı.
+                menu.Closed += (s, args) => this.Close();
+                menu.Show();
+				
+				
+
+
 			}
 			catch(Exception ex) 
 			{

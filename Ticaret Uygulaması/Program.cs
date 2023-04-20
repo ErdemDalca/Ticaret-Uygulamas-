@@ -26,6 +26,7 @@ namespace Ticaret_Uygulaması
 			if (Environment.OSVersion.Version.Major >= 6)
 				SetProcessDPIAware();
 			Application.Run(new BackSpace(Authdomain,ApiKey));
+			
 		}
 
 		[System.Runtime.InteropServices.DllImport("user32.dll")]
