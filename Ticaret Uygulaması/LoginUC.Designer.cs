@@ -65,7 +65,6 @@
 			this.emailLbl.Size = new System.Drawing.Size(40, 16);
 			this.emailLbl.TabIndex = 1;
 			this.emailLbl.Text = "email";
-			this.emailLbl.Click += new System.EventHandler(this.emailText_Click);
 			// 
 			// passwordLbl
 			// 

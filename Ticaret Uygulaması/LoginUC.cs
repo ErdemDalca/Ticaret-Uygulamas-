@@ -17,11 +17,6 @@ namespace Ticaret_Uygulaması
 			InitializeComponent();
 		}
 
-		private void emailText_Click(object sender, EventArgs e)
-		{
-
-		}
-
 		private void gösterCb_CheckedChanged(object sender, EventArgs e)
 		{
 			if(gösterCb.Checked)
