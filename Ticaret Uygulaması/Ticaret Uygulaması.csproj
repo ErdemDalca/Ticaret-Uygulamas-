@@ -250,6 +250,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.xml" />
+    <None Include="Resources\mavi.jpg" />
+    <None Include="Resources\indir.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

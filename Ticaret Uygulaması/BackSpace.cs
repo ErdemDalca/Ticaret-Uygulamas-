@@ -40,5 +40,15 @@ namespace Ticaret_Uygulaması
 			panel1.Controls.Clear();
 			panel1.Controls.Add(signIn);
 		}
-	}
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+			Application.Exit();
+        }
+    }
 }
