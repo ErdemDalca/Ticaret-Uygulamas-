@@ -28,5 +28,13 @@ namespace Ticaret_Uygulaması
 				passwordTxt.PasswordChar = '*';
 			}
 		}
-	}
+
+        private void signinBtn_Click(object sender, EventArgs e)
+        {
+			Specialmessagebox kayit = new Specialmessagebox();
+			kayit.Show();
+			
+
+        }
+    }
 }

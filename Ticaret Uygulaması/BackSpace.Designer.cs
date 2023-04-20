@@ -33,17 +33,20 @@
             this.lb = new System.Windows.Forms.Button();
             this.kb = new System.Windows.Forms.Button();
             this.ÇIKIŞ = new System.Windows.Forms.Button();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(257, 155);
+            this.panel1.Location = new System.Drawing.Point(257, 156);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(252, 272);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lb
             // 
@@ -83,13 +86,18 @@
             this.ÇIKIŞ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ÇIKIŞ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ÇIKIŞ.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.ÇIKIŞ.Location = new System.Drawing.Point(437, 435);
+            this.ÇIKIŞ.Location = new System.Drawing.Point(437, 432);
             this.ÇIKIŞ.Name = "ÇIKIŞ";
-            this.ÇIKIŞ.Size = new System.Drawing.Size(72, 54);
+            this.ÇIKIŞ.Size = new System.Drawing.Size(72, 57);
             this.ÇIKIŞ.TabIndex = 3;
             this.ÇIKIŞ.Text = "ÇIKIŞ";
             this.ÇIKIŞ.UseVisualStyleBackColor = false;
             this.ÇIKIŞ.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
             // 
             // BackSpace
             // 
@@ -111,6 +119,7 @@
             this.Name = "BackSpace";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -121,6 +130,7 @@
 		private System.Windows.Forms.Button lb;
 		private System.Windows.Forms.Button kb;
         private System.Windows.Forms.Button ÇIKIŞ;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
 
