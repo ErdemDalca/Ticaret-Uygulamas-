@@ -118,12 +118,11 @@
 		}
 
 		#endregion
-
-		private System.Windows.Forms.TextBox emailTxt;
-		private System.Windows.Forms.TextBox passwordTxt;
-		private System.Windows.Forms.Label emailLbl;
-		private System.Windows.Forms.Label passwordLbl;
-		private System.Windows.Forms.Button loginBtn;
-		private System.Windows.Forms.CheckBox gösterCb;
+		public System.Windows.Forms.TextBox emailTxt;
+		public System.Windows.Forms.Label emailLbl;
+		public System.Windows.Forms.Label passwordLbl;
+		public System.Windows.Forms.Button loginBtn;
+		public System.Windows.Forms.CheckBox gösterCb;
+		public System.Windows.Forms.TextBox passwordTxt;
 	}
 }

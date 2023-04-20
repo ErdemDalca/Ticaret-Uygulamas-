@@ -258,7 +258,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="config.xml" />
+    <Content Include="config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\minions.gif" />
     <None Include="Resources\mavi.jpg" />
     <None Include="Resources\indir.jpg" />
