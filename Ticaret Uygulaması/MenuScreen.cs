@@ -18,8 +18,8 @@ namespace Ticaret_Uygulaması
         {
             
             InitializeComponent();
-
-		}
+            
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
