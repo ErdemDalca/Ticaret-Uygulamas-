@@ -54,7 +54,21 @@ namespace Ticaret_Uygulaması
 
 		private async void SigninBtn_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("kayıt tıklandı");
+			try
+			{
+				var userCredential = await client.CreateUserWithEmailAndPasswordAsync(signIn.emailTxt.Text.Trim(), signIn.passwordTxt.Text.Trim());
+				MessageBox.Show("Kullanıcı ıd: "+userCredential.User.Info.Uid + "\nBaşarıyla Oluşturuldu.\nGiriş ekranına yönlendiriliyorsunuz");
+
+				lb_Click(this, new EventArgs());
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Kaıt İşlemi Başarısız :" + ex.Message);
+			}
+			finally
+			{
+
+			}
 		}
 
 		private async void LoginBtn_Click(object sender, EventArgs e)
@@ -72,9 +86,6 @@ namespace Ticaret_Uygulaması
                 menu.Closed += (s, args) => this.Close();
                 menu.Show();
 				
-				
-
-
 			}
 			catch(Exception ex) 
 			{
