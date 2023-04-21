@@ -62,5 +62,10 @@ namespace Ticaret_Uygulaması
             MessageBox.Show("Basıldı");
             this.Controls.Add(new UserProfile());
         }
-	}
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }

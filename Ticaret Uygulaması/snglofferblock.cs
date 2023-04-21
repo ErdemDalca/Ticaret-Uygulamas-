@@ -21,6 +21,18 @@ namespace Ticaret_Uygulaması
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openfiledialog = new OpenFileDialog();
+            if (openfiledialog.ShowDialog() == DialogResult.OK)
+            { pictureBox1.ImageLocation=openfiledialog.FileName; }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
