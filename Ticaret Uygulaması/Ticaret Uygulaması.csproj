@@ -234,6 +234,12 @@
     <Compile Include="snglofferblock.Designer.cs">
       <DependentUpon>snglofferblock.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserProfile.Designer.cs">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BackSpace.resx">
       <DependentUpon>BackSpace.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="snglofferblock.resx">
       <DependentUpon>snglofferblock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserProfile.resx">
+      <DependentUpon>UserProfile.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

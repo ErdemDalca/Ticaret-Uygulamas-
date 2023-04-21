@@ -56,5 +56,11 @@ namespace Ticaret_Uygulaması
 			e.Graphics.FillRectangle(Brushes.White, e.Bounds);
 			e.Graphics.DrawString(filtre.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds);
 		}
+
+		private void profileBtn_Click(object sender, EventArgs e)
+		{
+            MessageBox.Show("Basıldı");
+            this.Controls.Add(new UserProfile());
+        }
 	}
 }
