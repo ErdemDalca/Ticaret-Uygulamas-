@@ -28,64 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.sngltextbox1 = new System.Windows.Forms.TextBox();
+            this.sngltextbox2 = new System.Windows.Forms.TextBox();
+            this.snglpicturebox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.snglpicturebox)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // sngltextbox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(172, 14);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(264, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.sngltextbox1.Location = new System.Drawing.Point(172, 14);
+            this.sngltextbox1.Margin = new System.Windows.Forms.Padding(2);
+            this.sngltextbox1.Name = "sngltextbox1";
+            this.sngltextbox1.ReadOnly = true;
+            this.sngltextbox1.Size = new System.Drawing.Size(264, 20);
+            this.sngltextbox1.TabIndex = 0;
+            this.sngltextbox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // sngltextbox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(460, 14);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(74, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.sngltextbox2.Location = new System.Drawing.Point(460, 14);
+            this.sngltextbox2.Margin = new System.Windows.Forms.Padding(2);
+            this.sngltextbox2.Name = "sngltextbox2";
+            this.sngltextbox2.Size = new System.Drawing.Size(74, 20);
+            this.sngltextbox2.TabIndex = 3;
+            this.sngltextbox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // pictureBox1
+            // snglpicturebox
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(165, 98);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.snglpicturebox.BackColor = System.Drawing.Color.White;
+            this.snglpicturebox.Location = new System.Drawing.Point(2, 2);
+            this.snglpicturebox.Margin = new System.Windows.Forms.Padding(2);
+            this.snglpicturebox.Name = "snglpicturebox";
+            this.snglpicturebox.Size = new System.Drawing.Size(165, 98);
+            this.snglpicturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.snglpicturebox.TabIndex = 1;
+            this.snglpicturebox.TabStop = false;
+            this.snglpicturebox.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // snglofferblock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.sngltextbox2);
+            this.Controls.Add(this.snglpicturebox);
+            this.Controls.Add(this.sngltextbox1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "snglofferblock";
             this.Size = new System.Drawing.Size(586, 102);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.snglpicturebox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.PictureBox snglpicturebox;
+        public System.Windows.Forms.TextBox sngltextbox1;
+        public System.Windows.Forms.TextBox sngltextbox2;
     }
 }

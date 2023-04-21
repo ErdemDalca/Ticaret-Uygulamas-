@@ -28,5 +28,10 @@ namespace Ticaret_Uygulaması
 				passwordTxt.PasswordChar = '*';
 			}
 		}
-	}
+
+        private void emailTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

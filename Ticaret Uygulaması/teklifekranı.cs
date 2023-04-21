@@ -10,30 +10,28 @@ using System.Windows.Forms;
 
 namespace Ticaret_Uygulaması
 {
-    public partial class snglofferblock : UserControl
+    public partial class teklifekranı : Form
     {
-        public snglofferblock()
+        public teklifekranı()
         {
             InitializeComponent();
-			SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-			this.BackColor = Color.FromArgb(128, 255, 255, 255);
-		}
+        }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openfiledialog = new OpenFileDialog();
             if (openfiledialog.ShowDialog() == DialogResult.OK)
-            { snglpicturebox.ImageLocation=openfiledialog.FileName; }
+            { teklifresimbox.ImageLocation = openfiledialog.FileName; }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

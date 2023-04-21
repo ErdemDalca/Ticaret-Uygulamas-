@@ -208,6 +208,12 @@
     <Compile Include="MenuScreen.Designer.cs">
       <DependentUpon>MenuScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Profilekranı.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profilekranı.Designer.cs">
+      <DependentUpon>Profilekranı.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LogInUC.cs">
@@ -222,17 +228,23 @@
     <Compile Include="SignInUC.Designer.cs">
       <DependentUpon>SignInUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="snglofferblock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="snglofferblock.Designer.cs">
+      <DependentUpon>snglofferblock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Specialmessagebox.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Specialmessagebox.Designer.cs">
       <DependentUpon>Specialmessagebox.cs</DependentUpon>
     </Compile>
-    <Compile Include="snglofferblock.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="teklifekranı.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="snglofferblock.Designer.cs">
-      <DependentUpon>snglofferblock.cs</DependentUpon>
+    <Compile Include="teklifekranı.Designer.cs">
+      <DependentUpon>teklifekranı.cs</DependentUpon>
     </Compile>
     <Compile Include="UserProfile.cs">
       <SubType>UserControl</SubType>
@@ -246,6 +258,9 @@
     <EmbeddedResource Include="MenuScreen.resx">
       <DependentUpon>MenuScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Profilekranı.resx">
+      <DependentUpon>Profilekranı.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -256,11 +271,14 @@
     <EmbeddedResource Include="SignInUC.resx">
       <DependentUpon>SignInUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="snglofferblock.resx">
+      <DependentUpon>snglofferblock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Specialmessagebox.resx">
       <DependentUpon>Specialmessagebox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="snglofferblock.resx">
-      <DependentUpon>snglofferblock.cs</DependentUpon>
+    <EmbeddedResource Include="teklifekranı.resx">
+      <DependentUpon>teklifekranı.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserProfile.resx">
       <DependentUpon>UserProfile.cs</DependentUpon>

@@ -59,8 +59,8 @@ namespace Ticaret_Uygulaması
 
 		private void profileBtn_Click(object sender, EventArgs e)
 		{
-            MessageBox.Show("Basıldı");
-            this.Controls.Add(new UserProfile());
+            var Profil = new Profilekranı();
+            Profil.Show();
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
