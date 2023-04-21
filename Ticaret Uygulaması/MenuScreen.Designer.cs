@@ -34,7 +34,6 @@
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.ekle = new System.Windows.Forms.Button();
 			this.profileBtn = new System.Windows.Forms.Button();
-			this.panel1 = new System.Windows.Forms.Panel();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -94,21 +93,12 @@
 			this.profileBtn.UseVisualStyleBackColor = true;
 			this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
 			// 
-			// panel1
-			// 
-			this.panel1.BackColor = System.Drawing.Color.Transparent;
-			this.panel1.Location = new System.Drawing.Point(-2, -2);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1157, 745);
-			this.panel1.TabIndex = 5;
-			// 
 			// MenuScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Green;
 			this.ClientSize = new System.Drawing.Size(1153, 741);
-			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.profileBtn);
 			this.Controls.Add(this.ekle);
 			this.Controls.Add(this.flowLayoutPanel1);
@@ -133,6 +123,5 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button ekle;
 		private System.Windows.Forms.Button profileBtn;
-		private System.Windows.Forms.Panel panel1;
 	}
 }
