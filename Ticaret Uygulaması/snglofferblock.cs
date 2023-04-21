@@ -15,7 +15,9 @@ namespace Ticaret_Uygulaması
         public snglofferblock()
         {
             InitializeComponent();
-        }
+			SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+			this.BackColor = Color.FromArgb(128, 255, 255, 255);
+		}
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {

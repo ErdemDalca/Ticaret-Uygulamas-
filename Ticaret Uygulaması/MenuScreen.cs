@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Ticaret_Uygulaması
 {
@@ -17,8 +18,11 @@ namespace Ticaret_Uygulaması
         {
             
             InitializeComponent();
-            
-        }
+			this.filtre.FlatStyle = FlatStyle.Flat;
+			this.filtre.DrawMode = DrawMode.OwnerDrawFixed;
+			this.filtre.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.filtre_DrawItem);
+
+		}
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -49,5 +53,11 @@ namespace Ticaret_Uygulaması
         {
             flowLayoutPanel1.Controls.Add(new snglofferblock());
         }
-    }
+
+		private void filtre_DrawItem(object sender, DrawItemEventArgs e)
+		{
+			e.Graphics.FillRectangle(Brushes.White, e.Bounds);
+			e.Graphics.DrawString(filtre.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds);
+		}
+	}
 }
