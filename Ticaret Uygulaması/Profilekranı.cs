@@ -28,6 +28,7 @@ namespace Ticaret_Uygulaması
             offerblock.snglpicturebox.Image = teklif.teklifresimbox.Image;
             offerblock.sngltextbox1.Text= teklif.aciklamatextbox.Text;
             offerblock.sngltextbox2.Text= teklif.fiyattextbox.Text;
+            offerblock.snglpicturebox.Enabled = false;
             if (teklif.teklifresimbox.Image ==null || teklif.fiyattextbox.Text=="")
                 MessageBox.Show("resim ekleyin,fiyat  eklemeden teklif olusturamazsınız");
             else 
