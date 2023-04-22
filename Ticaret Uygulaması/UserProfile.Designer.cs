@@ -28,15 +28,16 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.SuspendLayout();
-			// 
-			// UserControl1
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Name = "UserControl1";
-			this.Size = new System.Drawing.Size(960, 646);
-			this.ResumeLayout(false);
+            this.SuspendLayout();
+            // 
+            // UserProfile
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "UserProfile";
+            this.Size = new System.Drawing.Size(960, 646);
+            this.Load += new System.EventHandler(this.UserProfile_Load);
+            this.ResumeLayout(false);
 
 		}
 

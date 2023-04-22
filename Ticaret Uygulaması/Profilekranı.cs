@@ -25,10 +25,17 @@ namespace Ticaret_Uygulaması
         {
 
             var offerblock = new snglofferblock();
-            offerblock.snglpicturebox.Image = teklif.teklifresimbox.Image; 
+            offerblock.snglpicturebox.Image = teklif.teklifresimbox.Image;
             offerblock.sngltextbox1.Text= teklif.aciklamatextbox.Text;
             offerblock.sngltextbox2.Text= teklif.fiyattextbox.Text;
-            flowLayoutPanel1.Controls.Add(offerblock);
+            if (teklif.teklifresimbox.Image ==null || teklif.fiyattextbox.Text=="")
+                MessageBox.Show("resim ekleyin,fiyat  eklemeden teklif olusturamazsınız");
+            else 
+            {
+                flowLayoutPanel1.Controls.Add(offerblock);
+                teklif.Close();
+            }
+               
             
         }
 
@@ -52,6 +59,7 @@ namespace Ticaret_Uygulaması
 
 
         }
+        
 
     }
 }

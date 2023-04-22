@@ -16,5 +16,10 @@ namespace Ticaret_Uygulaması
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void UserProfile_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

@@ -61,6 +61,13 @@ namespace Ticaret_Uygulaması
 		{
             var Profil = new Profilekranı();
             Profil.Show();
+            this.Hide();
+            Profil.button1.Click += Button1_Click;
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            this.Show();
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
