@@ -60,7 +60,7 @@ namespace Ticaret_Uygulaması
 		private void profileBtn_Click(object sender, EventArgs e)
 		{
             var Profil = new Profilekranı();
-            Profil.Show();
+			Profil.Show();
             this.Hide();
             Profil.button1.Click += Button1_Click;
         }

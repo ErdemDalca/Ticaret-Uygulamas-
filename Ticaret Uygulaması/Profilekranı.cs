@@ -16,9 +16,13 @@ namespace Ticaret_Uygulaması
         public Profilekranı()
         {
             InitializeComponent();
-            
+            var kullaciB = new kullaniciBilgileriUC();
+            panel1.Controls.Add(kullaciB);
 
-        }
+			flowLayoutPanel1.BackColor = Color.FromArgb(128, Color.Green);
+			kullaciB.BackColor = Color.FromArgb(128, Color.Green);
+
+		}
 
         private void Tamambtn_Click(object sender, EventArgs e)
 
