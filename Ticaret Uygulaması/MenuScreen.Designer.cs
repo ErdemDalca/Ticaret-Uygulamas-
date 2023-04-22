@@ -37,11 +37,11 @@
 			// 
 			// button1
 			// 
-			this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.button1.BackColor = System.Drawing.Color.Transparent;
 			this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
 			this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button1.Location = new System.Drawing.Point(1080, 13);
 			this.button1.Margin = new System.Windows.Forms.Padding(4);
 			this.button1.Name = "button1";
@@ -52,7 +52,9 @@
 			// 
 			// filtre
 			// 
+			this.filtre.BackColor = System.Drawing.Color.White;
 			this.filtre.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.filtre.ForeColor = System.Drawing.Color.Black;
 			this.filtre.FormattingEnabled = true;
 			this.filtre.Items.AddRange(new object[] {
             "fiyata göre sırala",
@@ -68,8 +70,7 @@
 			// flowLayoutPanel1
 			// 
 			this.flowLayoutPanel1.AutoScroll = true;
-			this.flowLayoutPanel1.BackColor = System.Drawing.Color.DarkViolet;
-			this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 107);
 			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -97,6 +98,8 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(1153, 741);
 			this.Controls.Add(this.profileBtn);
 			this.Controls.Add(this.flowLayoutPanel1);

@@ -18,8 +18,10 @@ namespace Ticaret_Uygulaması
         {
             
             InitializeComponent();
-            
-        }
+			flowLayoutPanel1.BackColor = Color.FromArgb(128, Color.Gray);
+            button1.BackColor = Color.FromArgb(10, Color.Gray);
+
+		}
 
         private void button1_Click(object sender, EventArgs e)
         {
