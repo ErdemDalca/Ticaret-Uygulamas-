@@ -22,6 +22,7 @@ namespace Ticaret_Uygulaması
 			flowLayoutPanel1.BackColor = Color.FromArgb(128, Color.Green);
 			kullaciB.BackColor = Color.FromArgb(128, Color.Green);
 
+            kullaciB.Parent.Size = panel1.Size;
 		}
 
         private void Tamambtn_Click(object sender, EventArgs e)

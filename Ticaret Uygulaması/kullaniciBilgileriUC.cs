@@ -15,6 +15,7 @@ namespace Ticaret_Uygulaması
 		public kullaniciBilgileriUC()
 		{
 			InitializeComponent();
+
 		}
 
 		private void kullaniciBilgileriUC_Load(object sender, EventArgs e)
