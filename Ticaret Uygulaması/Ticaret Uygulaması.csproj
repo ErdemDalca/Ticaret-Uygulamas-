@@ -240,12 +240,7 @@
     <Compile Include="snglofferblock.Designer.cs">
       <DependentUpon>snglofferblock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Specialmessagebox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Specialmessagebox.Designer.cs">
-      <DependentUpon>Specialmessagebox.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Sınıflar\Kullanıcıbilgileri.cs" />
     <Compile Include="teklifekranı.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,9 +277,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="snglofferblock.resx">
       <DependentUpon>snglofferblock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Specialmessagebox.resx">
-      <DependentUpon>Specialmessagebox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="teklifekranı.resx">
       <DependentUpon>teklifekranı.cs</DependentUpon>

@@ -81,7 +81,7 @@ namespace Ticaret_Uygulaması
 
 				//buradan devam edecek giriş işlemi.
 
-				var menu = new MenuScreen();
+				var menu = new MenuScreen(userCredential);
                 this.Hide();//backspace'i kapattı/sakladı.
                 menu.Closed += (s, args) => this.Close();
                 menu.Show();

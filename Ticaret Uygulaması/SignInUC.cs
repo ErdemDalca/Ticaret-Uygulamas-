@@ -31,8 +31,7 @@ namespace Ticaret_Uygulaması
 
         private void signinBtn_Click(object sender, EventArgs e)
         {
-			Specialmessagebox kayit = new Specialmessagebox();
-			kayit.Show();
+			
 			
 
         }
