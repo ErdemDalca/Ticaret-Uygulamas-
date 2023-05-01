@@ -29,6 +29,9 @@ namespace Ticaret_Uygulaması
             { teklifresimbox.ImageLocation = openfiledialog.FileName; }
         }
 
-        
-    }
+		private void tamambtn_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

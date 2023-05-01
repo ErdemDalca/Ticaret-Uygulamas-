@@ -8,9 +8,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Ticaret_Uygulaması.Sınıflar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -20,6 +22,7 @@ namespace Ticaret_Uygulaması
     {
         private UserCredential userCredential;
         private FirebaseClient firebaseclient;
+        public Kullanıcıbilgileri kullanıcıbilgileri;
          public MenuScreen(UserCredential userCredential)
         {   
             
@@ -39,11 +42,16 @@ namespace Ticaret_Uygulaması
             catch(Exception exc)
             {
                 MessageBox.Show("dikkat"+exc.Message,"problem",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
+			}
 
+			string uid = userCredential.User.Uid;
+			string name = userCredential.User.Info.FirstName;
+			string lastname = userCredential.User.Info.LastName;
+			string description = "açıklama";
 
+            this.kullanıcıbilgileri = new Kullanıcıbilgileri(uid, name, description, lastname);
 
-        }
+		}
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -83,7 +91,7 @@ namespace Ticaret_Uygulaması
 
 		private void profileBtn_Click(object sender, EventArgs e)
 		{
-            var Profil = new Profilekranı();
+            var Profil = new Profilekranı(kullanıcıbilgileri,userCredential,firebaseclient);
 			Profil.Show();
             this.Hide();
             Profil.button1.Click += Button1_Click;
@@ -101,14 +109,11 @@ namespace Ticaret_Uygulaması
 
         public async void kayıt_Click(object sender, EventArgs e)
         {
-            string uid = userCredential.User.Uid;
-            string name = userCredential.User.Info.FirstName;
-            string lastname = userCredential.User.Info.LastName;
-            string description = "açıklama";
+            
 
             await firebaseclient.Child("Users")
                                 .Child(userCredential.User.Uid)
-                                .PutAsync(new Kullanıcıbilgileri(uid,name,description,lastname));
+                                .PutAsync(kullanıcıbilgileri);
         }
     }
 }

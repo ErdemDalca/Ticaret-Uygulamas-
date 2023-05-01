@@ -106,6 +106,7 @@
 			this.tamambtn.TabIndex = 6;
 			this.tamambtn.Text = "ekle(kaydet)";
 			this.tamambtn.UseVisualStyleBackColor = true;
+			this.tamambtn.Click += new System.EventHandler(this.tamambtn_Click);
 			// 
 			// teklifekranı
 			// 

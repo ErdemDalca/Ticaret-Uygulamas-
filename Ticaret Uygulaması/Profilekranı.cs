@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Firebase.Auth;
+using Firebase.Database;
+using Firebase.Database.Query;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,13 +10,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ticaret_Uygulaması.Sınıflar;
 
 namespace Ticaret_Uygulaması
 {
     public partial class Profilekranı : Form
     {
+        UserCredential userCredential;
+        FirebaseClient firebaseClient;
+        Kullanıcıbilgileri kullanıcıbilgileri;
         teklifekranı teklif;
-        public Profilekranı()
+        public Profilekranı(Kullanıcıbilgileri kullanıcıbilgileri,UserCredential userCredential, FirebaseClient firebaseClient)
         {
             InitializeComponent();
             var kullaciB = new kullaniciBilgileriUC();
@@ -23,9 +30,12 @@ namespace Ticaret_Uygulaması
 			kullaciB.BackColor = Color.FromArgb(128, Color.Green);
 
             kullaciB.Parent.Size = panel1.Size;
+            this.kullanıcıbilgileri = kullanıcıbilgileri;
+            this.userCredential = userCredential;
+            this.firebaseClient = firebaseClient;
 		}
 
-        private void Tamambtn_Click(object sender, EventArgs e)
+        private async void Tamambtn_Click(object sender, EventArgs e)
 
         {
 
@@ -34,15 +44,15 @@ namespace Ticaret_Uygulaması
             offerblock.sngltextbox1.Text= teklif.aciklamatextbox.Text;
             offerblock.sngltextbox2.Text= teklif.fiyattextbox.Text;
             offerblock.snglpicturebox.Enabled = false;
-            if (teklif.teklifresimbox.Image ==null || teklif.fiyattextbox.Text=="")
-                MessageBox.Show("resim ekleyin,fiyat  eklemeden teklif olusturamazsınız");
+            if (teklif.teklifresimbox.Image ==null || teklif.fiyattextbox.Text=="" || teklif.aciklamatextbox.Text == "")
+                MessageBox.Show("Boş Alan Bıraktını!!!");
             else 
             {
-                flowLayoutPanel1.Controls.Add(offerblock);
-                teklif.Close();
+                kullanıcıbilgileri.OfferList.Add(new Offer());
+                await firebaseClient.Child("Users").Child(kullanıcıbilgileri.UID).PutAsync(kullanıcıbilgileri);
+				teklif.Close();
+                
             }
-               
-            
         }
 
         private void Profilekranı_Load(object sender, EventArgs e)
