@@ -45,8 +45,8 @@ namespace Ticaret_Uygulaması
 			}
 
 			string uid = userCredential.User.Uid;
-			string name = userCredential.User.Info.FirstName;
-			string lastname = userCredential.User.Info.LastName;
+			string name = "none";
+			string lastname = "none";
 			string description = "açıklama";
 
             this.kullanıcıbilgileri = new Kullanıcıbilgileri(uid, name, description, lastname);
@@ -89,9 +89,20 @@ namespace Ticaret_Uygulaması
 			e.Graphics.DrawString(filtre.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds);
 		}
 
-		private void profileBtn_Click(object sender, EventArgs e)
+		private async void profileBtn_Click(object sender, EventArgs e)
 		{
-            var Profil = new Profilekranı(kullanıcıbilgileri,userCredential,firebaseclient);
+            
+            var data = await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).OnceAsJsonAsync();
+		
+			Kullanıcıbilgileri dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<Kullanıcıbilgileri>(data);
+            if (dataAsClass == null)
+                kayıt(kullanıcıbilgileri);
+            else
+            {
+                kullanıcıbilgileri = dataAsClass;
+				kayıt(kullanıcıbilgileri);
+			}
+			var Profil = new Profilekranı(kullanıcıbilgileri, userCredential, firebaseclient);
 			Profil.Show();
             this.Hide();
             Profil.button1.Click += Button1_Click;
@@ -107,13 +118,19 @@ namespace Ticaret_Uygulaması
 
         }
 
-        public async void kayıt_Click(object sender, EventArgs e)
-        {
-            
 
-            await firebaseclient.Child("Users")
-                                .Child(userCredential.User.Uid)
-                                .PutAsync(kullanıcıbilgileri);
-        }
-    }
+		private async void MenuScreen_Load(object sender, EventArgs e)
+		{
+			//await firebaseclient.Child("Users")
+			//					.Child(userCredential.User.Uid)
+			//					.PutAsync(kullanıcıbilgileri);
+		}
+
+        private async void kayıt(Kullanıcıbilgileri kullanıcıbilgileri)
+        {
+			await firebaseclient.Child("Users")
+								.Child(userCredential.User.Uid)
+								.PutAsync(kullanıcıbilgileri);
+		}
+	}
 }
