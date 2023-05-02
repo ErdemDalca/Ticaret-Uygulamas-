@@ -34,6 +34,9 @@
             this.tekliflerTxt = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.profildüzenlemebutonu = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -75,7 +78,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Location = new System.Drawing.Point(597, 86);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(259, 150);
             this.panel1.TabIndex = 4;
@@ -94,6 +97,24 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // profildüzenlemebutonu
+            // 
+            this.profildüzenlemebutonu.Location = new System.Drawing.Point(753, 241);
+            this.profildüzenlemebutonu.Name = "profildüzenlemebutonu";
+            this.profildüzenlemebutonu.Size = new System.Drawing.Size(103, 23);
+            this.profildüzenlemebutonu.TabIndex = 5;
+            this.profildüzenlemebutonu.Text = "Profili düzenle";
+            this.profildüzenlemebutonu.UseVisualStyleBackColor = true;
+            this.profildüzenlemebutonu.Click += new System.EventHandler(this.profildüzenlemebutonu_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(753, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 69);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Profilekranı
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -102,6 +123,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(865, 602);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.profildüzenlemebutonu);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tekliflerTxt);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -112,6 +135,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profilekranı";
             this.Load += new System.EventHandler(this.Profilekranı_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,6 +146,8 @@
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label tekliflerTxt;
-		private System.Windows.Forms.Panel panel1;
-	}
+        public System.Windows.Forms.Button profildüzenlemebutonu;
+        public System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+    }
 }

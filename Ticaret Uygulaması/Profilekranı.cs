@@ -21,10 +21,13 @@ namespace Ticaret_Uygulaması
         FirebaseClient firebaseClient;
         Kullanıcıbilgileri kullanıcıbilgileri;
         teklifekranı teklif;
+        Profildüzenlemeekranı profildüzenlemeekranı;
+        kullaniciBilgileriUC kullaciB;
+
         public Profilekranı(Kullanıcıbilgileri kullanıcıbilgileri,UserCredential userCredential, FirebaseClient firebaseClient)
         {
             InitializeComponent();
-            var kullaciB = new kullaniciBilgileriUC();
+            kullaciB = new kullaniciBilgileriUC(userCredential);
             panel1.Controls.Add(kullaciB);
 
 			flowLayoutPanel1.BackColor = Color.FromArgb(128, Color.Green);
@@ -84,7 +87,27 @@ namespace Ticaret_Uygulaması
 
 
         }
-        
 
+        private void profildüzenlemebutonu_Click(object sender, EventArgs e)
+        {
+            profildüzenlemeekranı = new Profildüzenlemeekranı(kullanıcıbilgileri,userCredential,firebaseClient);
+            profildüzenlemeekranı.Düzenlebutton.Click += Düzenlebutton_Click;
+            profildüzenlemeekranı.Show();
+        }
+
+        private async void Düzenlebutton_Click(object sender, EventArgs e)
+        {
+            kullanıcıbilgileri.Description = profildüzenlemeekranı.aciklamadegistirtxt.Text;
+            kullanıcıbilgileri.Name =  profildüzenlemeekranı.kullaniciadidegistxt.Text;
+            MessageBox.Show(profildüzenlemeekranı.kullaniciadidegistxt.Text+ profildüzenlemeekranı.aciklamadegistirtxt.Text);
+            await firebaseClient.Child("Users").Child(kullanıcıbilgileri.UID).PutAsync(kullanıcıbilgileri);
+            
+            kullaciB.kullaniciAdiLbl.Text = profildüzenlemeekranı.kullaniciadidegistxt.Text;
+            kullaciB.aciklamaLbl.Text   = profildüzenlemeekranı.aciklamadegistirtxt.Text;
+            kullaciB.Refresh();
+
+            profildüzenlemeekranı.Close();
+
+        }
     }
 }

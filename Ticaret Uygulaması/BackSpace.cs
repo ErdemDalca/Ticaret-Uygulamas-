@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
+using System.Xml;
+using Ticaret_Uygulaması.Sınıflar;
 
 namespace Ticaret_Uygulaması
 {
@@ -52,14 +54,20 @@ namespace Ticaret_Uygulaması
 			this.client = new FirebaseAuthClient(config);
 		}
 
-		private async void SigninBtn_Click(object sender, EventArgs e)
+		public async void SigninBtn_Click(object sender, EventArgs e)
 		{
 			try
 			{
 				var userCredential = await client.CreateUserWithEmailAndPasswordAsync(signIn.emailTxt.Text.Trim(), signIn.passwordTxt.Text.Trim());
-				MessageBox.Show("Kullanıcı ıd: "+userCredential.User.Info.Uid + "\nBaşarıyla Oluşturuldu.\nGiriş ekranına yönlendiriliyorsunuz");
+                
+                MessageBox.Show("Kullanıcı ıd: "+userCredential.User.Info.Uid + "\nBaşarıyla Oluşturuldu.\nGiriş ekranına yönlendiriliyorsunuz");
+				
+                
 
-				lb_Click(this, new EventArgs());
+                userCredential.User.Info.LastName = signIn.soyisimtextbox.Text;
+
+
+                lb_Click(this, new EventArgs());
 			}
 			catch (Exception ex)
 			{
