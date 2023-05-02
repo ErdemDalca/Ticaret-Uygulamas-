@@ -33,6 +33,7 @@
 			this.filtre = new System.Windows.Forms.ComboBox();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.profileBtn = new System.Windows.Forms.Button();
+			this.yenilemeBtn = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -43,7 +44,7 @@
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button1.Location = new System.Drawing.Point(1080, 14);
-			this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button1.Margin = new System.Windows.Forms.Padding(4);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(60, 60);
 			this.button1.TabIndex = 0;
@@ -59,7 +60,7 @@
 			this.filtre.Items.AddRange(new object[] {
             "fiyata göre sırala",
             "eklenme tarihine göre sırala"});
-			this.filtre.Location = new System.Drawing.Point(580, 62);
+			this.filtre.Location = new System.Drawing.Point(513, 71);
 			this.filtre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.filtre.Name = "filtre";
 			this.filtre.Size = new System.Drawing.Size(201, 24);
@@ -93,6 +94,19 @@
 			this.profileBtn.UseVisualStyleBackColor = false;
 			this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
 			// 
+			// yenilemeBtn
+			// 
+			this.yenilemeBtn.BackColor = System.Drawing.Color.Transparent;
+			this.yenilemeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.yenilemeBtn.ForeColor = System.Drawing.Color.Black;
+			this.yenilemeBtn.Location = new System.Drawing.Point(730, 50);
+			this.yenilemeBtn.Name = "yenilemeBtn";
+			this.yenilemeBtn.Size = new System.Drawing.Size(51, 50);
+			this.yenilemeBtn.TabIndex = 5;
+			this.yenilemeBtn.Text = "⭮";
+			this.yenilemeBtn.UseVisualStyleBackColor = false;
+			this.yenilemeBtn.Click += new System.EventHandler(this.yenilemeBtn_Click);
+			// 
 			// MenuScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -101,13 +115,14 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(1153, 741);
+			this.Controls.Add(this.yenilemeBtn);
 			this.Controls.Add(this.profileBtn);
 			this.Controls.Add(this.flowLayoutPanel1);
 			this.Controls.Add(this.filtre);
 			this.Controls.Add(this.button1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.MinimizeBox = false;
 			this.Name = "MenuScreen";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -124,5 +139,6 @@
         private System.Windows.Forms.ComboBox filtre;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 		private System.Windows.Forms.Button profileBtn;
-    }
+		private System.Windows.Forms.Button yenilemeBtn;
+	}
 }

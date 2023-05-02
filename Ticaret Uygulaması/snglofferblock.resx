@@ -171,6 +171,9 @@
   <metadata name="snglpicturebox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="snglpicturebox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="snglpicturebox.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 2</value>
   </data>

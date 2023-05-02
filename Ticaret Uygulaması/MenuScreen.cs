@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
@@ -30,6 +31,7 @@ namespace Ticaret_Uygulaması
             this.userCredential = userCredential;
 			flowLayoutPanel1.BackColor = Color.FromArgb(128, Color.Gray);
             button1.BackColor = Color.FromArgb(10, Color.Gray);
+            yenilemeBtn.BackColor = Color.FromArgb(10, Color.Gray);
             try
             {
                 this.firebaseclient = new FirebaseClient("https://ticaretuygulamasi-kutsanmis-default-rtdb.firebaseio.com/ ",
@@ -121,9 +123,21 @@ namespace Ticaret_Uygulaması
 
 		private async void MenuScreen_Load(object sender, EventArgs e)
 		{
-			//await firebaseclient.Child("Users")
-			//					.Child(userCredential.User.Uid)
-			//					.PutAsync(kullanıcıbilgileri);
+			flowLayoutPanel1.Controls.Clear();
+			var dataUsers = await firebaseclient.Child("Users").OrderByKey().OnceAsync<Kullanıcıbilgileri>();
+
+			foreach (var kullanıcı in dataUsers)
+			{
+                foreach (var offer in kullanıcı.Object._offerList)
+                {
+                    var sngloffer = new snglofferblock();
+                    sngloffer.sngltextbox1.Text = offer.açıklama;
+                    sngloffer.sngltextbox2.Text = offer.fiyat;
+                    flowLayoutPanel1.Controls.Add(sngloffer);
+                }
+                
+			}
+			//Kullanıcıbilgileri dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<Kullanıcıbilgileri>(data);
 		}
 
         private async void kayıt(Kullanıcıbilgileri kullanıcıbilgileri)
@@ -131,6 +145,11 @@ namespace Ticaret_Uygulaması
 			await firebaseclient.Child("Users")
 								.Child(userCredential.User.Uid)
 								.PutAsync(kullanıcıbilgileri);
+		}
+
+		private void yenilemeBtn_Click(object sender, EventArgs e)
+		{
+			MenuScreen_Load(this, new EventArgs());
 		}
 	}
 }
