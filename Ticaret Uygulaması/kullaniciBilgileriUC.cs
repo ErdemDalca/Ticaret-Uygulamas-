@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Firebase.Auth;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,15 +14,21 @@ namespace Ticaret_Uygulaması
 {
 	public partial class kullaniciBilgileriUC : UserControl
 	{
-		public kullaniciBilgileriUC()
+		UserCredential userCredential;
+		
+        public kullaniciBilgileriUC(UserCredential userCredential)
 		{
+		
 			InitializeComponent();
+			this.userCredential = userCredential;
 
 		}
 
-		private void kullaniciBilgileriUC_Load(object sender, EventArgs e)
+		public void kullaniciBilgileriUC_Load(object sender, EventArgs e)
 		{
-
+			kullaniciAdiLbl.Text = userCredential.User.Info.FirstName;
+			EmailLbl.Text = userCredential.User.Info.Email;
+			
 		}
 	}
 }

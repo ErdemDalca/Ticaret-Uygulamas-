@@ -214,6 +214,12 @@
     <Compile Include="MenuScreen.Designer.cs">
       <DependentUpon>MenuScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Profildüzenlemeekranı.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profildüzenlemeekranı.Designer.cs">
+      <DependentUpon>Profildüzenlemeekranı.cs</DependentUpon>
+    </Compile>
     <Compile Include="Profilekranı.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,12 +254,6 @@
     <Compile Include="teklifekranı.Designer.cs">
       <DependentUpon>teklifekranı.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserProfile.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserProfile.Designer.cs">
-      <DependentUpon>UserProfile.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="BackSpace.resx">
       <DependentUpon>BackSpace.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuScreen.resx">
       <DependentUpon>MenuScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profildüzenlemeekranı.resx">
+      <DependentUpon>Profildüzenlemeekranı.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profilekranı.resx">
       <DependentUpon>Profilekranı.cs</DependentUpon>
@@ -281,9 +284,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="teklifekranı.resx">
       <DependentUpon>teklifekranı.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserProfile.resx">
-      <DependentUpon>UserProfile.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

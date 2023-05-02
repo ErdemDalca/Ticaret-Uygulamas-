@@ -65,7 +65,7 @@
             // 
             this.kullaniciAdiLbl.AutoSize = true;
             this.kullaniciAdiLbl.BackColor = System.Drawing.Color.Transparent;
-            this.kullaniciAdiLbl.Location = new System.Drawing.Point(142, 20);
+            this.kullaniciAdiLbl.Location = new System.Drawing.Point(156, 20);
             this.kullaniciAdiLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.kullaniciAdiLbl.Name = "kullaniciAdiLbl";
             this.kullaniciAdiLbl.Size = new System.Drawing.Size(45, 13);
@@ -76,7 +76,7 @@
             // 
             this.aciklamaLbl.AutoSize = true;
             this.aciklamaLbl.BackColor = System.Drawing.Color.Transparent;
-            this.aciklamaLbl.Location = new System.Drawing.Point(142, 105);
+            this.aciklamaLbl.Location = new System.Drawing.Point(156, 109);
             this.aciklamaLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.aciklamaLbl.Name = "aciklamaLbl";
             this.aciklamaLbl.Size = new System.Drawing.Size(90, 13);
@@ -99,7 +99,7 @@
             // 
             this.EmailLbl.AutoSize = true;
             this.EmailLbl.BackColor = System.Drawing.Color.Transparent;
-            this.EmailLbl.Location = new System.Drawing.Point(142, 63);
+            this.EmailLbl.Location = new System.Drawing.Point(156, 64);
             this.EmailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.EmailLbl.Name = "EmailLbl";
             this.EmailLbl.Size = new System.Drawing.Size(31, 13);
@@ -119,7 +119,7 @@
             this.Controls.Add(this.mailTxt);
             this.Controls.Add(this.kullaniciAditxt);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "kullaniciBilgileriUC";
             this.Size = new System.Drawing.Size(259, 150);
             this.Load += new System.EventHandler(this.kullaniciBilgileriUC_Load);
@@ -132,9 +132,9 @@
 
 		private System.Windows.Forms.Label kullaniciAditxt;
 		private System.Windows.Forms.Label aciklamaTxt;
-		private System.Windows.Forms.Label kullaniciAdiLbl;
-		private System.Windows.Forms.Label aciklamaLbl;
 		private System.Windows.Forms.Label mailTxt;
-		private System.Windows.Forms.Label EmailLbl;
-	}
+        public System.Windows.Forms.Label kullaniciAdiLbl;
+        public System.Windows.Forms.Label aciklamaLbl;
+        public System.Windows.Forms.Label EmailLbl;
+    }
 }
