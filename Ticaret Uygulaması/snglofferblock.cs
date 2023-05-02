@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Ticaret_Uygulaması
 {
@@ -17,7 +18,8 @@ namespace Ticaret_Uygulaması
             InitializeComponent();
 			SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 			this.BackColor = Color.FromArgb(128, 255, 255, 255);
-            
+           
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

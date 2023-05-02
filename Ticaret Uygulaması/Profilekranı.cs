@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using Ticaret_Uygulaması.Sınıflar;
 
@@ -107,6 +108,63 @@ namespace Ticaret_Uygulaması
             kullaciB.Refresh();
 
             profildüzenlemeekranı.Close();
+
+        }
+
+        private void paraeklebtn_Click(object sender, EventArgs e)
+        {
+            var smenusu = new satinalmamenusu();
+            smenusu.satinal.Click += Satinal_Click;
+            smenusu.satinal2.Click += Satinal2_Click;
+            smenusu.satinal3.Click += Satinal3_Click;
+            smenusu.satinal4.Click += Satinal4_Click;
+            smenusu.satinal5.Click += Satinal5_Click;
+            smenusu.satinal6.Click += Satinal6_Click;
+            smenusu.Show();
+
+
+        }
+
+        private void Satinal6_Click(object sender, EventArgs e)
+        {
+            int txt = Convert.ToInt32(paramik.Text);
+            txt += 1500;
+            paramik.Text = txt.ToString();
+        }
+
+        private void Satinal5_Click(object sender, EventArgs e)
+        {
+            int txt = Convert.ToInt32(paramik.Text);
+            txt += 1000;
+            paramik.Text = txt.ToString();
+        }
+
+        private void Satinal4_Click(object sender, EventArgs e)
+        {
+            int txt = Convert.ToInt32(paramik.Text);
+            txt += 800;
+            paramik.Text = txt.ToString();
+        }
+
+        private void Satinal3_Click(object sender, EventArgs e)
+        {
+            int txt = Convert.ToInt32(paramik.Text);
+            txt += 500;
+            paramik.Text = txt.ToString();
+        }
+
+        private void Satinal2_Click(object sender, EventArgs e)
+        {
+            int txt = Convert.ToInt32(paramik.Text);
+            txt += 150;
+            paramik.Text = txt.ToString();
+        }
+
+        private void Satinal_Click(object sender, EventArgs e)
+        {
+            int txt = Convert.ToInt32(paramik.Text);
+            txt += 50;
+            paramik.Text = txt.ToString();
 
         }
     }

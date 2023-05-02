@@ -15,6 +15,16 @@ namespace Ticaret_Uygulaması
         public teklifekranı()
         {
             InitializeComponent();
+            this.fiyattextbox.KeyPress += sadeceSayiGir;
+        }
+        private void sadeceSayiGir(object sender, KeyPressEventArgs e)
+        {
+           
+            if (!char.IsDigit(e.KeyChar))
+            {
+                
+                e.Handled = true;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)

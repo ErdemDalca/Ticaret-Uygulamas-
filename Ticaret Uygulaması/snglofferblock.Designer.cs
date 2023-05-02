@@ -1,4 +1,6 @@
-﻿namespace Ticaret_Uygulaması
+﻿using System.Windows.Forms;
+
+namespace Ticaret_Uygulaması
 {
     partial class snglofferblock
     {
@@ -18,6 +20,8 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+
+            
         }
 
         #region Bileşen Tasarımcısı üretimi kod

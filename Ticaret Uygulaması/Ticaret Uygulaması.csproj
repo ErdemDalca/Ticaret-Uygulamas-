@@ -202,6 +202,12 @@
     <Compile Include="BackSpace.Designer.cs">
       <DependentUpon>BackSpace.cs</DependentUpon>
     </Compile>
+    <Compile Include="satinalmamenusu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="satinalmamenusu.Designer.cs">
+      <DependentUpon>satinalmamenusu.cs</DependentUpon>
+    </Compile>
     <Compile Include="kullaniciBilgileriUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -256,6 +262,9 @@
     </Compile>
     <EmbeddedResource Include="BackSpace.resx">
       <DependentUpon>BackSpace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="satinalmamenusu.resx">
+      <DependentUpon>satinalmamenusu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="kullaniciBilgileriUC.resx">
       <DependentUpon>kullaniciBilgileriUC.cs</DependentUpon>
