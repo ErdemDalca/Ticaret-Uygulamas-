@@ -43,7 +43,6 @@ namespace Ticaret_Uygulaması
 		}
 
         private async void Tamambtn_Click(object sender, EventArgs e)
-
         {
             if (teklif.teklifresimbox.Image ==null || teklif.fiyattextbox.Text=="" || teklif.aciklamatextbox.Text == "")
                 MessageBox.Show("Boş Alan Bıraktını!!!");
@@ -82,7 +81,7 @@ namespace Ticaret_Uygulaması
 
         {
            
-            teklif = new teklifekranı();
+            teklif = new teklifekranı(firebaseClient,userCredential);
             teklif.Show();
             teklif.tamambtn.Click += Tamambtn_Click;
 

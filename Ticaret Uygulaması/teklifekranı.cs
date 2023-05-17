@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Firebase.Auth;
+using Firebase.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +14,7 @@ namespace Ticaret_Uygulaması
 {
     public partial class teklifekranı : Form
     {
-        public teklifekranı()
+        public teklifekranı(FirebaseClient firebaseClient, UserCredential userCredential)
         {
             InitializeComponent();
             this.fiyattextbox.KeyPress += sadeceSayiGir;

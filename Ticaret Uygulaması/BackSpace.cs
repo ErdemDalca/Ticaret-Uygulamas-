@@ -20,17 +20,24 @@ namespace Ticaret_Uygulaması
 	{
 		private string AuthDomain;
 		private string ApiKey;
+		private string FDDdomain;
+		private string FSDdomain;
+		private Ayarlar ayarlar;
 
 		public LogInUC logIn;
 		public SignInUC signIn;
 
 		private FirebaseAuthClient client;
 
-		public BackSpace(string authDomain, string apiKey)
+		public BackSpace(Ayarlar ayarlar)
 		{
 			InitializeComponent();
-			this.AuthDomain = authDomain;
-			this.ApiKey = apiKey;
+
+			this.ayarlar = ayarlar;
+			this.AuthDomain = ayarlar.AuthDomain;
+			this.ApiKey = ayarlar.ApiKey;
+			this.FDDdomain = ayarlar.FDDomain;
+			this.FSDdomain = ayarlar.FSDomain;
 
 			logIn = new LogInUC();
 			signIn = new SignInUC();
@@ -89,7 +96,7 @@ namespace Ticaret_Uygulaması
 
 				//buradan devam edecek giriş işlemi.
 
-				var menu = new MenuScreen(userCredential);
+				var menu = new MenuScreen(userCredential,ayarlar);
                 this.Hide();//backspace'i kapattı/sakladı.
                 menu.Closed += (s, args) => this.Close();
                 menu.Show();

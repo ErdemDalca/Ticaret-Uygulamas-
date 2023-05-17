@@ -252,6 +252,7 @@
     <Compile Include="snglofferblock.Designer.cs">
       <DependentUpon>snglofferblock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sınıflar\Ayarlar.cs" />
     <Compile Include="Sınıflar\Offer.cs" />
     <Compile Include="Sınıflar\Kullanıcıbilgileri.cs" />
     <Compile Include="teklifekranı.cs">

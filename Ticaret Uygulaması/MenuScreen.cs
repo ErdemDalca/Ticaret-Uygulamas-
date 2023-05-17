@@ -24,22 +24,26 @@ namespace Ticaret_Uygulaması
         private UserCredential userCredential;
         private FirebaseClient firebaseclient;
         public Kullanıcıbilgileri kullanıcıbilgileri;
-         public MenuScreen(UserCredential userCredential)
+        public Ayarlar ayarlar;
+
+         public MenuScreen(UserCredential userCredential, Ayarlar ayarlar)
         {   
             
             InitializeComponent();
+            this.ayarlar = ayarlar;
             this.userCredential = userCredential;
 			flowLayoutPanel1.BackColor = Color.FromArgb(128, Color.Gray);
             button1.BackColor = Color.FromArgb(10, Color.Gray);
             yenilemeBtn.BackColor = Color.FromArgb(10, Color.Gray);
             try
             {
-                this.firebaseclient = new FirebaseClient("https://ticaretuygulamasi-kutsanmis-default-rtdb.firebaseio.com/ ",
+                this.firebaseclient = new FirebaseClient(ayarlar.FDDomain + " ",
                         new FirebaseOptions
                         {
                             AuthTokenAsyncFactory = () => userCredential.User.GetIdTokenAsync()
                         });
-                MessageBox.Show("database istemcisi oluşturuldu" , "pass", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+                //MessageBox.Show("database istemcisi oluşturuldu" , "pass", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             catch(Exception exc)
             {

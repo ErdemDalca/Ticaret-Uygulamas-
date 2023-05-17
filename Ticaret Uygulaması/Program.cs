@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using Ticaret_Uygulaması.Sınıflar;
 
 namespace Ticaret_Uygulaması
 {
@@ -20,12 +21,16 @@ namespace Ticaret_Uygulaması
 
 			string Authdomain = config.DocumentElement.SelectSingleNode("/Firebase/AuthDomain").InnerText.Trim();
 			string ApiKey = config.DocumentElement.SelectSingleNode("/Firebase/ApiKey").InnerText.Trim();
+			string FDDomain = config.DocumentElement.SelectSingleNode("/Firebase/FDDomain").InnerText.Trim();
+			string FSDomain = config.DocumentElement.SelectSingleNode("/Firebase/FSDomain").InnerText.Trim();
+
+			Ayarlar ayarlar = new Ayarlar(Authdomain,ApiKey,FDDomain,FSDomain); 
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			if (Environment.OSVersion.Version.Major >= 6)
 				SetProcessDPIAware();
-			Application.Run(new BackSpace(Authdomain,ApiKey));
+			Application.Run(new BackSpace(ayarlar));
 			
 		}
 
