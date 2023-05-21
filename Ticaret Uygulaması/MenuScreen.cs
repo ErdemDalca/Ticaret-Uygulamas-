@@ -25,8 +25,10 @@ namespace Ticaret_Uygulaması
         private FirebaseClient firebaseclient;
         public Kullanıcıbilgileri kullanıcıbilgileri;
         public Ayarlar ayarlar;
+        public IReadOnlyCollection<FirebaseObject<Kullanıcıbilgileri>> dataUsers;
 
-         public MenuScreen(UserCredential userCredential, Ayarlar ayarlar)
+
+		 public MenuScreen(UserCredential userCredential, Ayarlar ayarlar)
         {   
             
             InitializeComponent();
@@ -56,7 +58,6 @@ namespace Ticaret_Uygulaması
 			string description = "açıklama";
 
             this.kullanıcıbilgileri = new Kullanıcıbilgileri(uid, name, description, lastname);
-
 		}
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,25 +65,6 @@ namespace Ticaret_Uygulaması
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void ekle_Click(object sender, EventArgs e)
         {
@@ -108,7 +90,7 @@ namespace Ticaret_Uygulaması
                 kullanıcıbilgileri = dataAsClass;
 				kayıt(kullanıcıbilgileri);
 			}
-			var Profil = new Profilekranı(kullanıcıbilgileri, userCredential, firebaseclient);
+			var Profil = new Profilekranı(kullanıcıbilgileri, userCredential, firebaseclient,ayarlar);
 			Profil.Show();
             this.Hide();
             Profil.button1.Click += Button1_Click;
@@ -119,29 +101,29 @@ namespace Ticaret_Uygulaması
             this.Show();
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
 		private async void MenuScreen_Load(object sender, EventArgs e)
 		{
-			flowLayoutPanel1.Controls.Clear();
-			var dataUsers = await firebaseclient.Child("Users").OrderByKey().OnceAsync<Kullanıcıbilgileri>();
+			
+			dataUsers = await firebaseclient.Child("Users").OrderByKey().OnceAsync<Kullanıcıbilgileri>();
 
+            OfferListele();
+			//Kullanıcıbilgileri dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<Kullanıcıbilgileri>(data);
+		}
+
+        private void OfferListele()
+        {
+			flowLayoutPanel1.Controls.Clear();
 			foreach (var kullanıcı in dataUsers)
 			{
-                foreach (var offer in kullanıcı.Object._offerList)
-                {
-                    var sngloffer = new snglofferblock();
-                    sngloffer.sngltextbox1.Text = offer.açıklama;
-                    sngloffer.sngltextbox2.Text = offer.fiyat;
-                    flowLayoutPanel1.Controls.Add(sngloffer);
-                }
-                
+				foreach (var offer in kullanıcı.Object._offerList)
+				{
+					var sngloffer = new snglofferblock();
+					sngloffer.sngltextbox1.Text = offer.açıklama;
+					sngloffer.sngltextbox2.Text = offer.fiyat;
+					flowLayoutPanel1.Controls.Add(sngloffer);
+				}
+
 			}
-			//Kullanıcıbilgileri dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<Kullanıcıbilgileri>(data);
 		}
 
         private async void kayıt(Kullanıcıbilgileri kullanıcıbilgileri)

@@ -66,7 +66,6 @@
 			this.filtre.Size = new System.Drawing.Size(201, 24);
 			this.filtre.TabIndex = 1;
 			this.filtre.Text = "seç(sıralama kriterleri)";
-			this.filtre.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
 			// 
 			// flowLayoutPanel1
 			// 
@@ -77,7 +76,6 @@
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(777, 628);
 			this.flowLayoutPanel1.TabIndex = 2;
-			this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
 			// 
 			// profileBtn
 			// 

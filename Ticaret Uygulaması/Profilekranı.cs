@@ -1,11 +1,13 @@
 ﻿using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Database.Query;
+using Firebase.Storage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -24,10 +26,12 @@ namespace Ticaret_Uygulaması
         teklifekranı teklif;
         Profildüzenlemeekranı profildüzenlemeekranı;
         kullaniciBilgileriUC kullaciB;
+        Ayarlar ayarlar;
 
-        public Profilekranı(Kullanıcıbilgileri kullanıcıbilgileri,UserCredential userCredential, FirebaseClient firebaseClient)
+        public Profilekranı(Kullanıcıbilgileri kullanıcıbilgileri,UserCredential userCredential, FirebaseClient firebaseClient, Ayarlar ayarlar)
         {
             InitializeComponent();
+            this.ayarlar = ayarlar; 
             kullaciB = new kullaniciBilgileriUC(userCredential);
             panel1.Controls.Add(kullaciB);
 
@@ -40,6 +44,7 @@ namespace Ticaret_Uygulaması
             this.firebaseClient = firebaseClient;
 
             
+
 		}
 
         private async void Tamambtn_Click(object sender, EventArgs e)
@@ -48,7 +53,16 @@ namespace Ticaret_Uygulaması
                 MessageBox.Show("Boş Alan Bıraktını!!!");
             else 
             {
-                string açıklama = teklif.aciklamatextbox.Text.Trim();
+				var task = new FirebaseStorage(ayarlar.FSDomain,
+				new FirebaseStorageOptions
+				{
+					AuthTokenAsyncFactory = () => userCredential.User.GetIdTokenAsync(),
+					ThrowOnCancel = true,
+				});
+				var stream = File.Open(teklif.teklifresimbox.ImageLocation, FileMode.Open);
+				await task.Child("Offer_Resim_Deneme").PutAsync(stream);
+
+				string açıklama = teklif.aciklamatextbox.Text.Trim();
                 string fiyat = teklif.fiyattextbox.Text.Trim();
                 kullanıcıbilgileri.OfferList.Add(new Offer(açıklama,fiyat));
 				await firebaseClient.Child("Users").Child(kullanıcıbilgileri.UID).PutAsync(kullanıcıbilgileri);
@@ -120,7 +134,6 @@ namespace Ticaret_Uygulaması
             smenusu.satinal5.Click += Satinal5_Click;
             smenusu.satinal6.Click += Satinal6_Click;
             smenusu.Show();
-
 
         }
 
