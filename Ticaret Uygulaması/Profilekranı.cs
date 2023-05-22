@@ -50,11 +50,10 @@ namespace Ticaret_Uygulaması
         private async void Tamambtn_Click(object sender, EventArgs e)
         {
             if (teklif.teklifresimbox.Image ==null || teklif.fiyattextbox.Text=="" || teklif.aciklamatextbox.Text == "")
-                MessageBox.Show("Boş Alan Bıraktını!!!");
+                MessageBox.Show("Boş Alan Bıraktın!!!");
             else 
             {
-				var task = new FirebaseStorage(ayarlar.FSDomain,
-				new FirebaseStorageOptions
+				var task = new FirebaseStorage(ayarlar.FSDomain,new FirebaseStorageOptions
 				{
 					AuthTokenAsyncFactory = () => userCredential.User.GetIdTokenAsync(),
 					ThrowOnCancel = true,
@@ -64,7 +63,8 @@ namespace Ticaret_Uygulaması
 
 				string açıklama = teklif.aciklamatextbox.Text.Trim();
                 string fiyat = teklif.fiyattextbox.Text.Trim();
-                kullanıcıbilgileri.OfferList.Add(new Offer(açıklama,fiyat));
+                string ID = teklif.offerIDtext.Text.Trim();
+                kullanıcıbilgileri.OfferList.Add(new Offer(açıklama,fiyat,ID));
 				await firebaseClient.Child("Users").Child(kullanıcıbilgileri.UID).PutAsync(kullanıcıbilgileri);
                 flowLayoutPanel1.Controls.Clear();
 				Profilekranı_Load(this, new EventArgs());

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Firebase>
+	<AuthDomain>ticaretuygulamasi-kutsanmis.firebaseapp.com</AuthDomain>
+	<ApiKey>AIzaSyDQJQzSr3COEHJ2ZLaqqdXKXvVK0v0xlN0</ApiKey>
+	<FDDomain>https://ticaretuygulamasi-kutsanmis-default-rtdb.firebaseio.com/</FDDomain>
+	<FSDomain>ticaretuygulamasi-kutsanmis.appspot.com</FSDomain>
+</Firebase>

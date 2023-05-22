@@ -28,115 +28,115 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuScreen));
-			this.button1 = new System.Windows.Forms.Button();
-			this.filtre = new System.Windows.Forms.ComboBox();
-			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-			this.profileBtn = new System.Windows.Forms.Button();
-			this.yenilemeBtn = new System.Windows.Forms.Button();
-			this.SuspendLayout();
-			// 
-			// button1
-			// 
-			this.button1.BackColor = System.Drawing.Color.Transparent;
-			this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-			this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.button1.Location = new System.Drawing.Point(1080, 14);
-			this.button1.Margin = new System.Windows.Forms.Padding(4);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(60, 60);
-			this.button1.TabIndex = 0;
-			this.button1.UseVisualStyleBackColor = false;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// filtre
-			// 
-			this.filtre.BackColor = System.Drawing.Color.White;
-			this.filtre.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.filtre.ForeColor = System.Drawing.Color.Black;
-			this.filtre.FormattingEnabled = true;
-			this.filtre.Items.AddRange(new object[] {
-            "fiyata göre sırala",
-            "eklenme tarihine göre sırala"});
-			this.filtre.Location = new System.Drawing.Point(513, 71);
-			this.filtre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.filtre.Name = "filtre";
-			this.filtre.Size = new System.Drawing.Size(201, 24);
-			this.filtre.TabIndex = 1;
-			this.filtre.Text = "seç(sıralama kriterleri)";
-			// 
-			// flowLayoutPanel1
-			// 
-			this.flowLayoutPanel1.AutoScroll = true;
-			this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 107);
-			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(777, 628);
-			this.flowLayoutPanel1.TabIndex = 2;
-			// 
-			// profileBtn
-			// 
-			this.profileBtn.BackColor = System.Drawing.Color.Transparent;
-			this.profileBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profileBtn.BackgroundImage")));
-			this.profileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.profileBtn.ForeColor = System.Drawing.Color.Transparent;
-			this.profileBtn.Location = new System.Drawing.Point(12, 14);
-			this.profileBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.profileBtn.Name = "profileBtn";
-			this.profileBtn.Size = new System.Drawing.Size(60, 60);
-			this.profileBtn.TabIndex = 4;
-			this.profileBtn.UseVisualStyleBackColor = false;
-			this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
-			// 
-			// yenilemeBtn
-			// 
-			this.yenilemeBtn.BackColor = System.Drawing.Color.Transparent;
-			this.yenilemeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-			this.yenilemeBtn.ForeColor = System.Drawing.Color.Black;
-			this.yenilemeBtn.Location = new System.Drawing.Point(730, 50);
-			this.yenilemeBtn.Name = "yenilemeBtn";
-			this.yenilemeBtn.Size = new System.Drawing.Size(51, 50);
-			this.yenilemeBtn.TabIndex = 5;
-			this.yenilemeBtn.Text = "⭮";
-			this.yenilemeBtn.UseVisualStyleBackColor = false;
-			this.yenilemeBtn.Click += new System.EventHandler(this.yenilemeBtn_Click);
-			// 
-			// MenuScreen
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(1153, 741);
-			this.Controls.Add(this.yenilemeBtn);
-			this.Controls.Add(this.profileBtn);
-			this.Controls.Add(this.flowLayoutPanel1);
-			this.Controls.Add(this.filtre);
-			this.Controls.Add(this.button1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(4);
-			this.MinimizeBox = false;
-			this.Name = "MenuScreen";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Yilgin bir hosgoru ile benimsenmisler";
-			this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-			this.Load += new System.EventHandler(this.MenuScreen_Load);
-			this.ResumeLayout(false);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuScreen));
+            this.button1 = new System.Windows.Forms.Button();
+            this.Sıralamafiltresi = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.profileBtn = new System.Windows.Forms.Button();
+            this.yenilemeBtn = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(810, 11);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 49);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Sıralamafiltresi
+            // 
+            this.Sıralamafiltresi.BackColor = System.Drawing.Color.White;
+            this.Sıralamafiltresi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Sıralamafiltresi.ForeColor = System.Drawing.Color.Black;
+            this.Sıralamafiltresi.FormattingEnabled = true;
+            this.Sıralamafiltresi.Items.AddRange(new object[] {
+            "azalan",
+            "artan"});
+            this.Sıralamafiltresi.Location = new System.Drawing.Point(385, 58);
+            this.Sıralamafiltresi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Sıralamafiltresi.Name = "Sıralamafiltresi";
+            this.Sıralamafiltresi.Size = new System.Drawing.Size(152, 21);
+            this.Sıralamafiltresi.TabIndex = 1;
+            this.Sıralamafiltresi.Text = "seç(sıralama kriterleri)";
+            this.Sıralamafiltresi.SelectedIndexChanged += new System.EventHandler(this.filtre_SelectedIndexChanged);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 87);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(583, 510);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // profileBtn
+            // 
+            this.profileBtn.BackColor = System.Drawing.Color.Transparent;
+            this.profileBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profileBtn.BackgroundImage")));
+            this.profileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profileBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.profileBtn.Location = new System.Drawing.Point(9, 11);
+            this.profileBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.profileBtn.Name = "profileBtn";
+            this.profileBtn.Size = new System.Drawing.Size(45, 49);
+            this.profileBtn.TabIndex = 4;
+            this.profileBtn.UseVisualStyleBackColor = false;
+            this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
+            // 
+            // yenilemeBtn
+            // 
+            this.yenilemeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.yenilemeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.yenilemeBtn.ForeColor = System.Drawing.Color.Black;
+            this.yenilemeBtn.Location = new System.Drawing.Point(548, 41);
+            this.yenilemeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.yenilemeBtn.Name = "yenilemeBtn";
+            this.yenilemeBtn.Size = new System.Drawing.Size(38, 41);
+            this.yenilemeBtn.TabIndex = 5;
+            this.yenilemeBtn.Text = "⭮";
+            this.yenilemeBtn.UseVisualStyleBackColor = false;
+            this.yenilemeBtn.Click += new System.EventHandler(this.yenilemeBtn_Click);
+            // 
+            // MenuScreen
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(865, 602);
+            this.Controls.Add(this.yenilemeBtn);
+            this.Controls.Add(this.profileBtn);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.Sıralamafiltresi);
+            this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
+            this.Name = "MenuScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Yilgin bir hosgoru ile benimsenmisler";
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.Load += new System.EventHandler(this.MenuScreen_Load);
+            this.ResumeLayout(false);
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox filtre;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 		private System.Windows.Forms.Button profileBtn;
 		private System.Windows.Forms.Button yenilemeBtn;
-	}
+        public System.Windows.Forms.ComboBox Sıralamafiltresi;
+    }
 }

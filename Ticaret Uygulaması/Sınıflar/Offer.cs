@@ -20,6 +20,7 @@ namespace Ticaret_Uygulaması.Sınıflar
 			this.resim = resim;
 			this.açıklama = açıklama;
 			this.fiyat = fiyat;
+			
 		}
 	}
 

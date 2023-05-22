@@ -74,7 +74,7 @@ namespace Ticaret_Uygulaması
 		private void filtre_DrawItem(object sender, DrawItemEventArgs e)
 		{
 			e.Graphics.FillRectangle(Brushes.White, e.Bounds);
-			e.Graphics.DrawString(filtre.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds);
+			e.Graphics.DrawString(Sıralamafiltresi.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds);
 		}
 
 		private async void profileBtn_Click(object sender, EventArgs e)
@@ -125,7 +125,7 @@ namespace Ticaret_Uygulaması
 
 			}
 		}
-
+        
         private async void kayıt(Kullanıcıbilgileri kullanıcıbilgileri)
         {
 			await firebaseclient.Child("Users")
@@ -137,5 +137,32 @@ namespace Ticaret_Uygulaması
 		{
 			MenuScreen_Load(this, new EventArgs());
 		}
-	}
+
+        private void filtre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+           if( Sıralamafiltresi.SelectedItem == "azalan")
+            {
+                foreach (var user in dataUsers  )
+                {
+                    user.Object.OfferList.Sort((x, y) => y.fiyat.CompareTo(x.fiyat));
+                   
+
+                }
+                OfferListele();
+                MessageBox.Show("azalacak şekilde sıralandı");
+            }
+            else
+            {
+                foreach (var user in dataUsers)
+                {
+                    user.Object.OfferList.Sort((y, x) => y.fiyat.CompareTo(x.fiyat));
+
+
+                }
+                OfferListele();
+                MessageBox.Show("artacak şekilde sıralandı");
+            }
+        }
+    }
 }
