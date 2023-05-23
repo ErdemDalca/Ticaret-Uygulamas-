@@ -72,7 +72,7 @@ namespace Ticaret_Uygulaması
             }
         }
 
-        private void Profilekranı_Load(object sender, EventArgs e)
+        private async void Profilekranı_Load(object sender, EventArgs e)
         {
             var list = kullanıcıbilgileri._offerList;
 
@@ -84,6 +84,11 @@ namespace Ticaret_Uygulaması
 
                 flowLayoutPanel1.Controls.Add(offerblock);
             }
+            paramik.Enabled = false;
+            this.paramik.Text = kullanıcıbilgileri.Money;
+
+                          
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -142,6 +147,8 @@ namespace Ticaret_Uygulaması
             int txt = Convert.ToInt32(paramik.Text);
             txt += 1500;
             paramik.Text = txt.ToString();
+            MessageBox.Show("1500 * satın aldınız !");
+            store();
         }
 
         private void Satinal5_Click(object sender, EventArgs e)
@@ -149,6 +156,8 @@ namespace Ticaret_Uygulaması
             int txt = Convert.ToInt32(paramik.Text);
             txt += 1000;
             paramik.Text = txt.ToString();
+            MessageBox.Show("1000 * satın aldınız !");
+            store();
         }
 
         private void Satinal4_Click(object sender, EventArgs e)
@@ -156,6 +165,8 @@ namespace Ticaret_Uygulaması
             int txt = Convert.ToInt32(paramik.Text);
             txt += 800;
             paramik.Text = txt.ToString();
+            MessageBox.Show("800 * satın aldınız !");
+            store();
         }
 
         private void Satinal3_Click(object sender, EventArgs e)
@@ -163,6 +174,8 @@ namespace Ticaret_Uygulaması
             int txt = Convert.ToInt32(paramik.Text);
             txt += 500;
             paramik.Text = txt.ToString();
+            MessageBox.Show("500 * satın aldınız !");
+            store();
         }
 
         private void Satinal2_Click(object sender, EventArgs e)
@@ -170,6 +183,8 @@ namespace Ticaret_Uygulaması
             int txt = Convert.ToInt32(paramik.Text);
             txt += 150;
             paramik.Text = txt.ToString();
+            MessageBox.Show("150 * satın aldınız !");
+            store();
         }
 
         private void Satinal_Click(object sender, EventArgs e)
@@ -177,7 +192,12 @@ namespace Ticaret_Uygulaması
             int txt = Convert.ToInt32(paramik.Text);
             txt += 50;
             paramik.Text = txt.ToString();
-
+            MessageBox.Show("50 * satın aldınız !");
+            store();
+        }
+        private async void store()
+        {
+            await firebaseClient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").PutAsync(paramik.Text);
         }
     }
 }

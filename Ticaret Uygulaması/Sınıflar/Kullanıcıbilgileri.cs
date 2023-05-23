@@ -14,6 +14,7 @@ namespace Ticaret_Uygulaması.Sınıflar
 		public string Name { get; set; }
 		public string Lastname { get; set; }
 		public string Description { get; set; }
+		public string Money { get; set; }
 		public List<Offer> OfferList
 		{
 			get { return _offerList; }
@@ -28,6 +29,7 @@ namespace Ticaret_Uygulaması.Sınıflar
 			this.Name = Name;
 			this.Description = Description;
 			this.Lastname = Lastname;
+			this.Money = "50";
 		}
 	}
 }

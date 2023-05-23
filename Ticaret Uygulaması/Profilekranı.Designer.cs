@@ -147,9 +147,9 @@
             // 
             this.paraicon.Enabled = false;
             this.paraicon.Image = ((System.Drawing.Image)(resources.GetObject("paraicon.Image")));
-            this.paraicon.Location = new System.Drawing.Point(806, 67);
+            this.paraicon.Location = new System.Drawing.Point(796, 67);
             this.paraicon.Name = "paraicon";
-            this.paraicon.Size = new System.Drawing.Size(32, 32);
+            this.paraicon.Size = new System.Drawing.Size(42, 32);
             this.paraicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.paraicon.TabIndex = 8;
             this.paraicon.TabStop = false;
