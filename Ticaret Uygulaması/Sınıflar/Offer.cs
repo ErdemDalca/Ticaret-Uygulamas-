@@ -12,9 +12,9 @@ namespace Ticaret_Uygulaması.Sınıflar
 		public string offerId = "0";
 		public string resim = "0";
 		public string açıklama = "0";
-		public string fiyat = "0";
+		public string fiyat;
 
-		public Offer(string açıklama = "Null", string fiyat = "Null", string offerId = "Null", string resim = "Null")
+		public Offer(string açıklama = "Null", string fiyat="null", string offerId = "Null", string resim = "Null")
 		{
 			this.offerId = offerId;
 			this.resim = resim;

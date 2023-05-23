@@ -26,12 +26,14 @@ namespace Ticaret_Uygulaması
         public Kullanıcıbilgileri kullanıcıbilgileri;
         public Ayarlar ayarlar;
         public IReadOnlyCollection<FirebaseObject<Kullanıcıbilgileri>> dataUsers;
+        public List<Offer> dataofferlist;
 
 
 		 public MenuScreen(UserCredential userCredential, Ayarlar ayarlar)
         {   
             
             InitializeComponent();
+            dataofferlist = new List<Offer>();
             this.ayarlar = ayarlar;
             this.userCredential = userCredential;
 			flowLayoutPanel1.BackColor = Color.FromArgb(128, Color.Gray);
@@ -103,27 +105,29 @@ namespace Ticaret_Uygulaması
 
 		private async void MenuScreen_Load(object sender, EventArgs e)
 		{
-			
+            dataofferlist.Clear();
 			dataUsers = await firebaseclient.Child("Users").OrderByKey().OnceAsync<Kullanıcıbilgileri>();
+            foreach(var user in dataUsers)
+            {
+                dataofferlist.AddRange(user.Object._offerList);
 
+               
+            }
             OfferListele();
 			//Kullanıcıbilgileri dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<Kullanıcıbilgileri>(data);
 		}
 
         private void OfferListele()
-        {
+        {   
 			flowLayoutPanel1.Controls.Clear();
-			foreach (var kullanıcı in dataUsers)
-			{
-				foreach (var offer in kullanıcı.Object._offerList)
+			foreach (var offer in dataofferlist)
 				{
 					var sngloffer = new snglofferblock();
 					sngloffer.sngltextbox1.Text = offer.açıklama;
 					sngloffer.sngltextbox2.Text = offer.fiyat;
 					flowLayoutPanel1.Controls.Add(sngloffer);
 				}
-
-			}
+					
 		}
         
         private async void kayıt(Kullanıcıbilgileri kullanıcıbilgileri)
@@ -143,23 +147,21 @@ namespace Ticaret_Uygulaması
            
            if( Sıralamafiltresi.SelectedItem == "azalan")
             {
-                foreach (var user in dataUsers  )
-                {
-                    user.Object.OfferList.Sort((x, y) => y.fiyat.CompareTo(x.fiyat));
-                   
+                dataofferlist = dataofferlist.OrderByDescending(u => decimal.Parse(u.fiyat)).ToList();
+                
 
-                }
+
+                //dataofferlist.Sort((x, y) => y.fiyat.CompareTo(x.fiyat));
                 OfferListele();
                 MessageBox.Show("azalacak şekilde sıralandı");
             }
             else
             {
-                foreach (var user in dataUsers)
-                {
-                    user.Object.OfferList.Sort((y, x) => y.fiyat.CompareTo(x.fiyat));
+                dataofferlist = dataofferlist.OrderBy(u => decimal.Parse(u.fiyat)).ToList();
 
 
-                }
+
+                //dataofferlist.Sort((y, x) => y.fiyat.CompareTo(x.fiyat))
                 OfferListele();
                 MessageBox.Show("artacak şekilde sıralandı");
             }
