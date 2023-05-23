@@ -1,11 +1,13 @@
 ﻿using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Database.Query;
+using Firebase.Storage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
@@ -23,17 +25,18 @@ namespace Ticaret_Uygulaması
     {
         private UserCredential userCredential;
         private FirebaseClient firebaseclient;
+        private FirebaseStorage task;
         public Kullanıcıbilgileri kullanıcıbilgileri;
         public Ayarlar ayarlar;
         public IReadOnlyCollection<FirebaseObject<Kullanıcıbilgileri>> dataUsers;
-        public List<Offer> dataofferlist;
+        public List<OfferWithImage> dataofferlist;
 
 
 		 public MenuScreen(UserCredential userCredential, Ayarlar ayarlar)
         {   
             
             InitializeComponent();
-            dataofferlist = new List<Offer>();
+            dataofferlist = new List<OfferWithImage>();
             this.ayarlar = ayarlar;
             this.userCredential = userCredential;
 			flowLayoutPanel1.BackColor = Color.FromArgb(128, Color.Gray);
@@ -46,9 +49,14 @@ namespace Ticaret_Uygulaması
                         {
                             AuthTokenAsyncFactory = () => userCredential.User.GetIdTokenAsync()
                         });
+				task = new FirebaseStorage(ayarlar.FSDomain, new FirebaseStorageOptions
+				{
+					AuthTokenAsyncFactory = () => userCredential.User.GetIdTokenAsync(),
+					ThrowOnCancel = true,
+				});
 
-                //MessageBox.Show("database istemcisi oluşturuldu" , "pass", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            }
+				//MessageBox.Show("database istemcisi oluşturuldu" , "pass", MessageBoxButtons.OK, MessageBoxIcon.Question);
+			}
             catch(Exception exc)
             {
                 MessageBox.Show("dikkat"+exc.Message,"problem",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -105,29 +113,52 @@ namespace Ticaret_Uygulaması
 
 		private async void MenuScreen_Load(object sender, EventArgs e)
 		{
+            
             dataofferlist.Clear();
 			dataUsers = await firebaseclient.Child("Users").OrderByKey().OnceAsync<Kullanıcıbilgileri>();
             foreach(var user in dataUsers)
             {
-                dataofferlist.AddRange(user.Object._offerList);
+                int i = 0;
+                foreach(var offer in user.Object.OfferList)
+                {
+					try
+					{
+						string resim_url = await task.Child(kullanıcıbilgileri.UID)
+													 .Child("Offer Pictures")
+													 .Child((i).ToString()).GetDownloadUrlAsync();
 
-               
+						WebClient istemci = new WebClient();
+						Stream raw_dosya = istemci.OpenRead(resim_url);
+						Bitmap resim = new Bitmap(raw_dosya);
+
+						raw_dosya.Flush();
+						raw_dosya.Close();
+						istemci.Dispose();
+
+                        dataofferlist.Add(new OfferWithImage(offer, resim));
+					}
+					catch (Exception ex) { }
+
+                    
+					i++;
+
+				}
             }
             OfferListele();
 			//Kullanıcıbilgileri dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<Kullanıcıbilgileri>(data);
 		}
 
         private void OfferListele()
-        {   
+        {
 			flowLayoutPanel1.Controls.Clear();
 			foreach (var offer in dataofferlist)
-				{
-					var sngloffer = new snglofferblock();
-					sngloffer.sngltextbox1.Text = offer.açıklama;
-					sngloffer.sngltextbox2.Text = offer.fiyat;
-					flowLayoutPanel1.Controls.Add(sngloffer);
-				}
-					
+            {
+				var sngloffer = new snglofferblock();
+				sngloffer.sngltextbox1.Text = offer.offer.açıklama;
+				sngloffer.sngltextbox2.Text = offer.offer.fiyat;
+                sngloffer.snglpicturebox.Image = offer.ımage;
+				flowLayoutPanel1.Controls.Add(sngloffer);
+			}		
 		}
         
         private async void kayıt(Kullanıcıbilgileri kullanıcıbilgileri)
@@ -147,7 +178,7 @@ namespace Ticaret_Uygulaması
            
            if( Sıralamafiltresi.SelectedItem == "azalan")
             {
-                dataofferlist = dataofferlist.OrderByDescending(u => decimal.Parse(u.fiyat)).ToList();
+                dataofferlist = dataofferlist.OrderByDescending(u => decimal.Parse(u.offer.fiyat)).ToList();
                 
 
 
@@ -157,7 +188,7 @@ namespace Ticaret_Uygulaması
             }
             else
             {
-                dataofferlist = dataofferlist.OrderBy(u => decimal.Parse(u.fiyat)).ToList();
+                dataofferlist = dataofferlist.OrderBy(u => decimal.Parse(u.offer.fiyat)).ToList();
 
 
 

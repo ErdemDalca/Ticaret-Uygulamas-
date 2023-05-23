@@ -29,7 +29,7 @@ namespace Ticaret_Uygulaması.Sınıflar
 			this.Name = Name;
 			this.Description = Description;
 			this.Lastname = Lastname;
-			this.Money = "50";
+			this.Money = "0";
 		}
 	}
 }

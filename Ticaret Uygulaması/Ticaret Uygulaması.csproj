@@ -255,6 +255,7 @@
     <Compile Include="Sınıflar\Ayarlar.cs" />
     <Compile Include="Sınıflar\Offer.cs" />
     <Compile Include="Sınıflar\Kullanıcıbilgileri.cs" />
+    <Compile Include="Sınıflar\OfferWithImage.cs" />
     <Compile Include="teklifekranı.cs">
       <SubType>Form</SubType>
     </Compile>
