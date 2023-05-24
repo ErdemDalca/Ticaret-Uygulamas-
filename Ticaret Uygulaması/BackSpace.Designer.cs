@@ -34,7 +34,11 @@
 			this.kb = new System.Windows.Forms.Button();
 			this.ÇIKIŞ = new System.Windows.Forms.Button();
 			this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+			this.cpb = new CircularProgressBar.CircularProgressBar();
+			this.yüklemePanel = new System.Windows.Forms.Panel();
+			this.yükleniyorLbl = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+			this.yüklemePanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -87,7 +91,7 @@
 			this.ÇIKIŞ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.ÇIKIŞ.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.ÇIKIŞ.Location = new System.Drawing.Point(583, 532);
-			this.ÇIKIŞ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.ÇIKIŞ.Margin = new System.Windows.Forms.Padding(4);
 			this.ÇIKIŞ.Name = "ÇIKIŞ";
 			this.ÇIKIŞ.Size = new System.Drawing.Size(96, 70);
 			this.ÇIKIŞ.TabIndex = 3;
@@ -100,6 +104,59 @@
 			this.fileSystemWatcher1.EnableRaisingEvents = true;
 			this.fileSystemWatcher1.SynchronizingObject = this;
 			// 
+			// cpb
+			// 
+			this.cpb.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+			this.cpb.AnimationSpeed = 500;
+			this.cpb.BackColor = System.Drawing.Color.Transparent;
+			this.cpb.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold);
+			this.cpb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.cpb.InnerColor = System.Drawing.Color.Transparent;
+			this.cpb.InnerMargin = 2;
+			this.cpb.InnerWidth = -1;
+			this.cpb.Location = new System.Drawing.Point(99, 3);
+			this.cpb.MarqueeAnimationSpeed = 2000;
+			this.cpb.Name = "cpb";
+			this.cpb.OuterColor = System.Drawing.Color.White;
+			this.cpb.OuterMargin = -25;
+			this.cpb.OuterWidth = 26;
+			this.cpb.ProgressColor = System.Drawing.Color.Cyan;
+			this.cpb.ProgressWidth = 25;
+			this.cpb.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+			this.cpb.Size = new System.Drawing.Size(50, 50);
+			this.cpb.StartAngle = 270;
+			this.cpb.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+			this.cpb.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+			this.cpb.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+			this.cpb.SubscriptText = ".23";
+			this.cpb.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+			this.cpb.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+			this.cpb.SuperscriptText = "°C";
+			this.cpb.TabIndex = 4;
+			this.cpb.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+			this.cpb.Value = 68;
+			// 
+			// yüklemePanel
+			// 
+			this.yüklemePanel.Controls.Add(this.yükleniyorLbl);
+			this.yüklemePanel.Controls.Add(this.cpb);
+			this.yüklemePanel.Location = new System.Drawing.Point(860, 698);
+			this.yüklemePanel.Name = "yüklemePanel";
+			this.yüklemePanel.Size = new System.Drawing.Size(152, 58);
+			this.yüklemePanel.TabIndex = 5;
+			this.yüklemePanel.Visible = false;
+			// 
+			// yükleniyorLbl
+			// 
+			this.yükleniyorLbl.AutoSize = true;
+			this.yükleniyorLbl.BackColor = System.Drawing.Color.Transparent;
+			this.yükleniyorLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
+			this.yükleniyorLbl.Location = new System.Drawing.Point(20, 19);
+			this.yükleniyorLbl.Name = "yükleniyorLbl";
+			this.yükleniyorLbl.Size = new System.Drawing.Size(73, 16);
+			this.yükleniyorLbl.TabIndex = 5;
+			this.yükleniyorLbl.Text = "Yükleniyor:";
+			// 
 			// BackSpace
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -107,6 +164,7 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(1024, 768);
+			this.Controls.Add(this.yüklemePanel);
 			this.Controls.Add(this.ÇIKIŞ);
 			this.Controls.Add(this.kb);
 			this.Controls.Add(this.lb);
@@ -120,7 +178,10 @@
 			this.Name = "BackSpace";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "LogIn";
+			this.Load += new System.EventHandler(this.BackSpace_Load);
 			((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+			this.yüklemePanel.ResumeLayout(false);
+			this.yüklemePanel.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -132,6 +193,9 @@
 		private System.Windows.Forms.Button kb;
         private System.Windows.Forms.Button ÇIKIŞ;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
-    }
+		private CircularProgressBar.CircularProgressBar cpb;
+		private System.Windows.Forms.Panel yüklemePanel;
+		private System.Windows.Forms.Label yükleniyorLbl;
+	}
 }
 

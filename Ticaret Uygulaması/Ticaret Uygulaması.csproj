@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CircularProgressBar, Version=2.8.0.16, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CircularProgressBar.2.8.0.16\lib\net40\CircularProgressBar.dll</HintPath>
+    </Reference>
     <Reference Include="Firebase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FirebaseDatabase.net.4.2.0\lib\netstandard2.0\Firebase.dll</HintPath>
     </Reference>
@@ -194,6 +197,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />
+    <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackSpace.cs">
@@ -262,6 +268,12 @@
     <Compile Include="teklifekranı.Designer.cs">
       <DependentUpon>teklifekranı.cs</DependentUpon>
     </Compile>
+    <Compile Include="YüklemeEkranı.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YüklemeEkranı.Designer.cs">
+      <DependentUpon>YüklemeEkranı.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BackSpace.resx">
       <DependentUpon>BackSpace.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +308,9 @@
     <EmbeddedResource Include="teklifekranı.resx">
       <DependentUpon>teklifekranı.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="YüklemeEkranı.resx">
+      <DependentUpon>YüklemeEkranı.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -322,6 +337,9 @@
     <None Include="Resources\minions.gif" />
     <None Include="Resources\mavi.jpg" />
     <None Include="Resources\indir.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

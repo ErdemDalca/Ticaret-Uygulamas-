@@ -39,6 +39,8 @@ namespace Ticaret_Uygulaması
 			this.FDDdomain = ayarlar.FDDomain;
 			this.FSDdomain = ayarlar.FSDomain;
 
+			yüklemePanel.BackColor = Color.FromArgb(128, Color.Gray);
+
 			logIn = new LogInUC();
 			signIn = new SignInUC();
 
@@ -88,6 +90,8 @@ namespace Ticaret_Uygulaması
 
 		private async void LoginBtn_Click(object sender, EventArgs e)
 		{
+			yüklemePanel.Visible = true;
+			logIn.loginBtn.Enabled = false;
 			try
 			{
 				var userCredential = await client.SignInWithEmailAndPasswordAsync(logIn.emailTxt.Text.Trim(),
@@ -99,17 +103,20 @@ namespace Ticaret_Uygulaması
 				var menu = new MenuScreen(userCredential,ayarlar);
                 this.Hide();//backspace'i kapattı/sakladı.
                 menu.Closed += (s, args) => this.Close();
-                menu.Show();
+				menu.Show();
 				
 			}
 			catch(Exception ex) 
 			{
 				MessageBox.Show("Giriş İşlemi Başarısız :" + ex.Message);
+				logIn.loginBtn.Enabled = true;
+				yüklemePanel.Visible = false;
 			}
 			finally
 			{
 
 			}
+			yüklemePanel.Visible =false;
 		}
 
 		private void button2_Click(object sender, EventArgs e)
@@ -143,5 +150,25 @@ namespace Ticaret_Uygulaması
         {
 
         }
-    }
+
+		private void BackSpace_Load(object sender, EventArgs e)
+		{
+			Timer timer = new Timer();
+			timer.Interval = 500; // 10 milisaniye
+
+			// Zamanlayıcı her çalıştığında ne yapacağını belirle
+			timer.Tick += (s, args) =>
+			{
+				// Barın değerini %1 arttır
+				cpb.Increment(cpb.Maximum / 20);
+
+				// Barın değeri maksimuma ulaştıysa sıfırla
+				if (cpb.Value == cpb.Maximum)
+					cpb.Value = 0;
+			};
+
+			// Zamanlayıcıyı başlat
+			timer.Start();
+		}
+	}
 }

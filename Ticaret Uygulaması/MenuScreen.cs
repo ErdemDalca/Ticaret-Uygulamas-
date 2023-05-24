@@ -113,7 +113,12 @@ namespace Ticaret_Uygulaması
 
 		private async void MenuScreen_Load(object sender, EventArgs e)
 		{
+            var yüklemeEkranı = new YüklemeEkranı();
+            yüklemeEkranı.Location = Location;
+            yüklemeEkranı.Show();
+            this.Visible = false;
             
+
             dataofferlist.Clear();
 			dataUsers = await firebaseclient.Child("Users").OrderByKey().OnceAsync<Kullanıcıbilgileri>();
             foreach(var user in dataUsers)
@@ -145,8 +150,11 @@ namespace Ticaret_Uygulaması
 				}
             }
             OfferListele();
-			//Kullanıcıbilgileri dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<Kullanıcıbilgileri>(data);
-		}
+            //Kullanıcıbilgileri dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<Kullanıcıbilgileri>(data);
+
+            yüklemeEkranı.Close();
+            Visible = true;
+        }
 
         private void OfferListele()
         {
