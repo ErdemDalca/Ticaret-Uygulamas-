@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(kullaniciBilgileriUC));
             this.kullaniciAditxt = new System.Windows.Forms.Label();
             this.aciklamaTxt = new System.Windows.Forms.Label();
-            this.kullaniciAdiLbl = new System.Windows.Forms.Label();
             this.aciklamaLbl = new System.Windows.Forms.Label();
             this.mailTxt = new System.Windows.Forms.Label();
             this.EmailLbl = new System.Windows.Forms.Label();
+            this.kullaniciAdiLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // kullaniciAditxt
@@ -61,27 +61,17 @@
             this.aciklamaTxt.TabIndex = 0;
             this.aciklamaTxt.Text = "Açıklama:";
             // 
-            // kullaniciAdiLbl
-            // 
-            this.kullaniciAdiLbl.AutoSize = true;
-            this.kullaniciAdiLbl.BackColor = System.Drawing.Color.Transparent;
-            this.kullaniciAdiLbl.Location = new System.Drawing.Point(156, 20);
-            this.kullaniciAdiLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.kullaniciAdiLbl.Name = "kullaniciAdiLbl";
-            this.kullaniciAdiLbl.Size = new System.Drawing.Size(45, 13);
-            this.kullaniciAdiLbl.TabIndex = 1;
-            this.kullaniciAdiLbl.Text = "kullanici";
-            // 
             // aciklamaLbl
             // 
             this.aciklamaLbl.AutoSize = true;
             this.aciklamaLbl.BackColor = System.Drawing.Color.Transparent;
-            this.aciklamaLbl.Location = new System.Drawing.Point(156, 109);
+            this.aciklamaLbl.Location = new System.Drawing.Point(146, 109);
             this.aciklamaLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.aciklamaLbl.Name = "aciklamaLbl";
             this.aciklamaLbl.Size = new System.Drawing.Size(90, 13);
             this.aciklamaLbl.TabIndex = 1;
             this.aciklamaLbl.Text = "kullanıcı açıklama";
+            this.aciklamaLbl.Click += new System.EventHandler(this.aciklamaLbl_Click);
             // 
             // mailTxt
             // 
@@ -99,12 +89,21 @@
             // 
             this.EmailLbl.AutoSize = true;
             this.EmailLbl.BackColor = System.Drawing.Color.Transparent;
-            this.EmailLbl.Location = new System.Drawing.Point(156, 64);
+            this.EmailLbl.Location = new System.Drawing.Point(146, 73);
             this.EmailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.EmailLbl.Name = "EmailLbl";
             this.EmailLbl.Size = new System.Drawing.Size(31, 13);
             this.EmailLbl.TabIndex = 1;
             this.EmailLbl.Text = "email";
+            // 
+            // kullaniciAdiLbl
+            // 
+            this.kullaniciAdiLbl.AutoSize = true;
+            this.kullaniciAdiLbl.Location = new System.Drawing.Point(146, 21);
+            this.kullaniciAdiLbl.Name = "kullaniciAdiLbl";
+            this.kullaniciAdiLbl.Size = new System.Drawing.Size(45, 13);
+            this.kullaniciAdiLbl.TabIndex = 2;
+            this.kullaniciAdiLbl.Text = "deneme";
             // 
             // kullaniciBilgileriUC
             // 
@@ -112,9 +111,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.kullaniciAdiLbl);
             this.Controls.Add(this.aciklamaLbl);
             this.Controls.Add(this.EmailLbl);
-            this.Controls.Add(this.kullaniciAdiLbl);
             this.Controls.Add(this.aciklamaTxt);
             this.Controls.Add(this.mailTxt);
             this.Controls.Add(this.kullaniciAditxt);
@@ -133,8 +132,8 @@
 		private System.Windows.Forms.Label kullaniciAditxt;
 		private System.Windows.Forms.Label aciklamaTxt;
 		private System.Windows.Forms.Label mailTxt;
-        public System.Windows.Forms.Label kullaniciAdiLbl;
         public System.Windows.Forms.Label aciklamaLbl;
         public System.Windows.Forms.Label EmailLbl;
+        public System.Windows.Forms.Label kullaniciAdiLbl;
     }
 }

@@ -13,6 +13,9 @@ using System.Windows.Forms;
 using System.Net;
 using System.Xml;
 using Ticaret_Uygulaması.Sınıflar;
+using Firebase.Database;
+using Firebase.Storage;
+using Firebase.Database.Query;
 
 namespace Ticaret_Uygulaması
 {
@@ -23,7 +26,7 @@ namespace Ticaret_Uygulaması
 		private string FDDdomain;
 		private string FSDdomain;
 		private Ayarlar ayarlar;
-
+		public FirebaseClient firebaseclient;
 		public LogInUC logIn;
 		public SignInUC signIn;
 
@@ -33,13 +36,15 @@ namespace Ticaret_Uygulaması
 		{
 			InitializeComponent();
 
+
 			this.ayarlar = ayarlar;
 			this.AuthDomain = ayarlar.AuthDomain;
 			this.ApiKey = ayarlar.ApiKey;
 			this.FDDdomain = ayarlar.FDDomain;
 			this.FSDdomain = ayarlar.FSDomain;
+           
 
-			yüklemePanel.BackColor = Color.FromArgb(128, Color.Gray);
+            yüklemePanel.BackColor = Color.FromArgb(128, Color.Gray);
 
 			logIn = new LogInUC();
 			signIn = new SignInUC();
@@ -67,16 +72,22 @@ namespace Ticaret_Uygulaması
 		{
 			try
 			{
-				var userCredential = await client.CreateUserWithEmailAndPasswordAsync(signIn.emailTxt.Text.Trim(), signIn.passwordTxt.Text.Trim());
+                var userCredential = await client.CreateUserWithEmailAndPasswordAsync(signIn.emailTxt.Text.Trim(), signIn.passwordTxt.Text.Trim());
+
+                this.firebaseclient = new FirebaseClient(ayarlar.FDDomain + " ",
+                        new FirebaseOptions
+                        {
+                            AuthTokenAsyncFactory = () => userCredential.User.GetIdTokenAsync()
+                        });
+
                 
                 MessageBox.Show("Kullanıcı ıd: "+userCredential.User.Info.Uid + "\nBaşarıyla Oluşturuldu.\nGiriş ekranına yönlendiriliyorsunuz");
-				
-                
-
-                userCredential.User.Info.LastName = signIn.soyisimtextbox.Text;
+				var kullanici = new Kullanıcıbilgileri(userCredential.User.Uid,signIn.isimtextbox.Text,"",signIn.soyisimtextbox.Text);
+                await firebaseclient.Child("Users").Child(userCredential.User.Info.Uid).PutAsync(kullanici);
 
 
                 lb_Click(this, new EventArgs());
+
 			}
 			catch (Exception ex)
 			{

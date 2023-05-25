@@ -33,6 +33,7 @@ namespace Ticaret_Uygulaması
         public Profilekranı(Kullanıcıbilgileri kullanıcıbilgileri,UserCredential userCredential, FirebaseClient firebaseClient, Ayarlar ayarlar)
         {
             InitializeComponent();
+
             this.ayarlar = ayarlar; 
             kullaciB = new kullaniciBilgileriUC(userCredential);
             panel1.Controls.Add(kullaciB);
@@ -51,7 +52,13 @@ namespace Ticaret_Uygulaması
 				ThrowOnCancel = true,
 			});
 
-		}
+            kullaciB.kullaniciAdiLbl.Text = kullanıcıbilgileri.Name;
+            
+            kullaciB.EmailLbl.Text = userCredential.User.Info.Email;
+            kullaciB.aciklamaLbl.Text = kullanıcıbilgileri.Description;
+            kullaciB.Refresh();
+
+        }
 
         private async void Tamambtn_Click(object sender, EventArgs e)
         {

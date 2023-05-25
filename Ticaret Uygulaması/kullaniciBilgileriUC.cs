@@ -26,9 +26,14 @@ namespace Ticaret_Uygulaması
 
 		public void kullaniciBilgileriUC_Load(object sender, EventArgs e)
 		{
-			kullaniciAdiLbl.Text = userCredential.User.Info.FirstName;
-			EmailLbl.Text = userCredential.User.Info.Email;
+			
+			
 			
 		}
-	}
+
+        private void aciklamaLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

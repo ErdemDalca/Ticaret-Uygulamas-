@@ -62,6 +62,7 @@ namespace Ticaret_Uygulaması
                 MessageBox.Show("dikkat"+exc.Message,"problem",MessageBoxButtons.OK,MessageBoxIcon.Error);
 			}
 
+
 			string uid = userCredential.User.Uid;
 			string name = "none";
 			string lastname = "none";
@@ -100,6 +101,7 @@ namespace Ticaret_Uygulaması
                 kullanıcıbilgileri = dataAsClass;
 				kayıt(kullanıcıbilgileri);
 			}
+            
 			var Profil = new Profilekranı(kullanıcıbilgileri, userCredential, firebaseclient,ayarlar);
 			Profil.Show();
             this.Hide();
@@ -128,7 +130,7 @@ namespace Ticaret_Uygulaması
                 {
 					try
 					{
-						string resim_url = await task.Child(kullanıcıbilgileri.UID)
+						string resim_url = await task.Child(user.Object.UID)
 													 .Child("Offer Pictures")
 													 .Child((i).ToString()).GetDownloadUrlAsync();
 
