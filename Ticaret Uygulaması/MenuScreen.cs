@@ -125,31 +125,33 @@ namespace Ticaret_Uygulaması
 			dataUsers = await firebaseclient.Child("Users").OrderByKey().OnceAsync<Kullanıcıbilgileri>();
             foreach(var user in dataUsers)
             {
-                int i = 0;
-                foreach(var offer in user.Object.OfferList)
+                if (user != null && user.Object.UID != kullanıcıbilgileri.UID)
                 {
-					try
-					{
-						string resim_url = await task.Child(user.Object.UID)
-													 .Child("Offer Pictures")
-													 .Child((i).ToString()).GetDownloadUrlAsync();
+                    int i = 0;
+                    foreach (var offer in user.Object.OfferList)
+                    {
+                        try
+                        {
+                            string resim_url = await task.Child(user.Object.UID)
+                                                         .Child("Offer Pictures")
+                                                         .Child((i).ToString()).GetDownloadUrlAsync();
 
-						WebClient istemci = new WebClient();
-						Stream raw_dosya = istemci.OpenRead(resim_url);
-						Bitmap resim = new Bitmap(raw_dosya);
+                            WebClient istemci = new WebClient();
+                            Stream raw_dosya = istemci.OpenRead(resim_url);
+                            Bitmap resim = new Bitmap(raw_dosya);
 
-						raw_dosya.Flush();
-						raw_dosya.Close();
-						istemci.Dispose();
+                            raw_dosya.Flush();
+                            raw_dosya.Close();
+                            istemci.Dispose();
 
-                        dataofferlist.Add(new OfferWithImage(offer, resim));
-					}
-					catch (Exception ex) { }
+                            dataofferlist.Add(new OfferWithImage(offer, resim));
+                        }
+                        catch (Exception ex) { }
 
-                    
-					i++;
+                        i++;
 
-				}
+                    }
+                }
             }
             OfferListele();
             //Kullanıcıbilgileri dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<Kullanıcıbilgileri>(data);

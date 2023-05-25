@@ -17,7 +17,13 @@ namespace Ticaret_Uygulaması
         public teklifekranı(FirebaseClient firebaseClient, UserCredential userCredential)
         {
             InitializeComponent();
-            this.fiyattextbox.KeyPress += sadeceSayiGir;
+			this.BackColor = Color.LimeGreen;
+			this.TransparencyKey = Color.LimeGreen;
+            var p = new Panel();
+            p.Size = this.Size;
+			p.BackColor = Color.FromArgb(10, Color.Gray);
+            Controls.Add(p);
+			this.fiyattextbox.KeyPress += sadeceSayiGir;
         }
         private void sadeceSayiGir(object sender, KeyPressEventArgs e)
         {
