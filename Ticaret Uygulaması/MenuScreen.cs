@@ -79,7 +79,7 @@ namespace Ticaret_Uygulaması
 
         private void ekle_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Controls.Add(new snglofferblock());
+            flowLayoutPanel1.Controls.Add(new snglofferblock(kullanıcıbilgileri,firebaseclient));
         }
 
 		private void filtre_DrawItem(object sender, DrawItemEventArgs e)
@@ -163,11 +163,13 @@ namespace Ticaret_Uygulaması
 			flowLayoutPanel1.Controls.Clear();
 			foreach (var offer in dataofferlist)
             {
-				var sngloffer = new snglofferblock();
+				var sngloffer = new snglofferblock(kullanıcıbilgileri,firebaseclient);
+                sngloffer.satinal.Visible = true;
 				sngloffer.sngltextbox1.Text = offer.offer.açıklama;
 				sngloffer.sngltextbox2.Text = offer.offer.fiyat;
                 sngloffer.snglpicturebox.Image = offer.ımage;
 				flowLayoutPanel1.Controls.Add(sngloffer);
+
 			}		
 		}
         

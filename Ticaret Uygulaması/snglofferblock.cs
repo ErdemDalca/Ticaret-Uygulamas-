@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Firebase.Database;
+using Firebase.Database.Query;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,19 +9,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ticaret_Uygulaması.Sınıflar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Ticaret_Uygulaması
 {
     public partial class snglofferblock : UserControl
     {
-        public snglofferblock()
-        {
+        public  FirebaseClient firebaseclient;
+        public Kullanıcıbilgileri kullanıcıbilgileri;
+        public snglofferblock(Kullanıcıbilgileri kullanıcıbilgileri,FirebaseClient firebaseclient)
+        {            
             InitializeComponent();
 			SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 			this.BackColor = Color.FromArgb(128, 255, 255, 255);
-           
-
+            this.kullanıcıbilgileri = kullanıcıbilgileri;
+            this.firebaseclient = firebaseclient;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -36,6 +41,27 @@ namespace Ticaret_Uygulaması
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private async void  satinal_Click(object sender, EventArgs e)
+        {
+            satinal.Enabled = false;
+
+            var data = await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").OnceAsJsonAsync();
+            string dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(data);
+            
+            if (Int32.Parse(dataAsClass) <= 0)
+            {
+                MessageBox.Show("para yetersiz");
+            }
+            else
+            {
+                dataAsClass = (Int32.Parse(dataAsClass) - Int32.Parse(sngltextbox2.Text)).ToString();
+                await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").PutAsync(dataAsClass);
+            }
+            satinal.Enabled = true;
+
 
         }
     }

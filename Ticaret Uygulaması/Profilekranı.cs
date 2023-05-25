@@ -87,7 +87,7 @@ namespace Ticaret_Uygulaması
 
             for(int i = 0; i < kullanıcıbilgileri._offerList.Count;i++)
             {
-                var offerblock = new snglofferblock();
+                var offerblock = new snglofferblock(kullanıcıbilgileri,firebaseClient);
                 offerblock.sngltextbox1.Text = list[i].açıklama;
                 offerblock.sngltextbox2.Text = list[i].fiyat;
 
