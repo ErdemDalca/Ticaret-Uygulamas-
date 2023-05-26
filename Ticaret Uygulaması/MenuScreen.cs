@@ -132,10 +132,7 @@ namespace Ticaret_Uygulaması
                     {
                         try
                         {
-                            string resim_url = await task.Child(user.Object.UID)
-                                                         .Child("Offer Pictures")
-                                                         .Child((i).ToString()).GetDownloadUrlAsync();
-
+                            string resim_url = offer.resimUrl;
                             WebClient istemci = new WebClient();
                             Stream raw_dosya = istemci.OpenRead(resim_url);
                             Bitmap resim = new Bitmap(raw_dosya);

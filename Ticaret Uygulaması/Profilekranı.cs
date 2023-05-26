@@ -68,12 +68,18 @@ namespace Ticaret_Uygulaması
             {
 				var stream = File.Open(teklif.teklifresimbox.ImageLocation, FileMode.Open);
 
+				await task.Child(kullanıcıbilgileri.UID).Child("Offer Pictures").Child((kullanıcıbilgileri.OfferList.Count).ToString()).PutAsync(stream);
+				string resim_url = await task.Child(kullanıcıbilgileri.UID)
+														 .Child("Offer Pictures")
+														 .Child((kullanıcıbilgileri.OfferList.Count).ToString()).GetDownloadUrlAsync();
+
+
 				string açıklama = teklif.aciklamatextbox.Text.Trim();
                 string fiyat = teklif.fiyattextbox.Text.Trim();
                 string ID = teklif.offerIDtext.Text.Trim();
-                kullanıcıbilgileri.OfferList.Add(new Offer(açıklama, fiyat, ID));
+                kullanıcıbilgileri.OfferList.Add(new Offer(açıklama, fiyat, ID,resim_url));
 				await firebaseClient.Child("Users").Child(kullanıcıbilgileri.UID).PutAsync(kullanıcıbilgileri);
-				await task.Child(kullanıcıbilgileri.UID).Child("Offer Pictures").Child((kullanıcıbilgileri.OfferList.Count-1).ToString()).PutAsync(stream);
+				
 
 				flowLayoutPanel1.Controls.Clear();
 				Profilekranı_Load(this, new EventArgs());

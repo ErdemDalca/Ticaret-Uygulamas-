@@ -18,7 +18,7 @@ namespace Ticaret_Uygulaması
 			List<string> list = new List<string>();
 			list.Add("Kağanın Göbeği 120 inch tir");
 			list.Add("Emin, Muhammed isminin kullanılmasından hoşlanmaz");
-			list.Add("allah aslında yok");
+			list.Add("Selim aslında spora gitmiyor");
 			list.Add("kağan aslında portekize kaçak yaşamaya gidiyor");
 			list.Add("erdemin ailesi, erdemin chp'ye oy attığını bilmiyor");
 			list.Add("erdem aslında cahilin teki");

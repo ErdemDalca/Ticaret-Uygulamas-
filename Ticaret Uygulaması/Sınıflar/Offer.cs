@@ -11,16 +11,16 @@ namespace Ticaret_Uygulaması.Sınıflar
 	public class Offer
 	{
 		public string offerId = "0";
-		public Bitmap resim ;
+		public string resimUrl ;
 		public string açıklama = "0";
 		public string fiyat;
 
-		public Offer(string açıklama = "Null", string fiyat="null", string offerId = "Null")
+		public Offer(string açıklama = "Null", string fiyat="null", string offerId = "Null",string resimUrl = "")
 		{
 			this.offerId = offerId;
 			this.açıklama = açıklama;
 			this.fiyat = fiyat;
-			
+			this.resimUrl = resimUrl;
 		}
 	}
 
