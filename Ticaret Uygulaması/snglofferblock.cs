@@ -1,5 +1,7 @@
-﻿using Firebase.Database;
+﻿using Firebase.Auth;
+using Firebase.Database;
 using Firebase.Database.Query;
+using Firebase.Storage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,16 +18,36 @@ namespace Ticaret_Uygulaması
 {
     public partial class snglofferblock : UserControl
     {
+
+        public string offerID;
         public  FirebaseClient firebaseclient;
         public Kullanıcıbilgileri kullanıcıbilgileri;
-        public snglofferblock(Kullanıcıbilgileri kullanıcıbilgileri,FirebaseClient firebaseclient)
+        public FirebaseStorage firebaseStorage;
+
+        public snglofferblock(UserCredential userCredential, Ayarlar ayarlar, Kullanıcıbilgileri kullanıcıbilgileri,FirebaseClient firebaseclient, string offerID = "")
         {            
             InitializeComponent();
 			SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 			this.BackColor = Color.FromArgb(128, 255, 255, 255);
             this.kullanıcıbilgileri = kullanıcıbilgileri;
             this.firebaseclient = firebaseclient;
-        }
+            this.offerID = offerID;
+
+			try
+			{
+				firebaseStorage = new FirebaseStorage(ayarlar.FSDomain, new FirebaseStorageOptions
+				{
+					AuthTokenAsyncFactory = () => userCredential.User.GetIdTokenAsync(),
+					ThrowOnCancel = true,
+				});
+
+				//MessageBox.Show("database istemcisi oluşturuldu" , "pass", MessageBoxButtons.OK, MessageBoxIcon.Question);
+			}
+			catch (Exception exc)
+			{
+				MessageBox.Show("dikkat" + exc.Message, "problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -64,5 +86,33 @@ namespace Ticaret_Uygulaması
 
 
         }
-    }
+
+		private async void SilBtn_Click(object sender, EventArgs e)
+		{
+			
+			try
+			{
+				SilBtn.Enabled = false;
+
+				await firebaseStorage.Child(kullanıcıbilgileri.UID).Child("Offer Pictures").Child(offerID).DeleteAsync();
+				kullanıcıbilgileri._offerList.RemoveAll(x => x.offerId == offerID);
+
+				kullanıcıbilgileri.OfferList = kullanıcıbilgileri._offerList;
+				await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("_offerList").PutAsync(kullanıcıbilgileri._offerList);
+				await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("OfferList").PutAsync(kullanıcıbilgileri._offerList);
+
+			}
+			catch (Exception ex) { SilBtn.Enabled = true; }
+			finally
+			{
+				
+			}
+			
+		}
+
+		private void SilBtn_Resize(object sender, EventArgs e)
+		{
+			
+		}
+	}
 }

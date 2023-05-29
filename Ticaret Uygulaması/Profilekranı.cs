@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
+using System.Xml.XPath;
 using Ticaret_Uygulaması.Sınıflar;
 
 namespace Ticaret_Uygulaması
@@ -62,28 +63,36 @@ namespace Ticaret_Uygulaması
 
         private async void Tamambtn_Click(object sender, EventArgs e)
         {
-            if (teklif.teklifresimbox.Image ==null || teklif.fiyattextbox.Text=="" || teklif.aciklamatextbox.Text == "")
-                MessageBox.Show("Boş Alan Bıraktın!!!");
-            else 
+			if (kullanıcıbilgileri._offerList.Count() < 5)
             {
-				var stream = File.Open(teklif.teklifresimbox.ImageLocation, FileMode.Open);
+                if (teklif.teklifresimbox.Image == null || teklif.fiyattextbox.Text == "" || teklif.aciklamatextbox.Text == "")
+                    MessageBox.Show("Boş Alan Bıraktın!!!");
+                else
+                {
+					string uniqueName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+					var stream = File.Open(teklif.teklifresimbox.ImageLocation, FileMode.Open);
 
-				await task.Child(kullanıcıbilgileri.UID).Child("Offer Pictures").Child((kullanıcıbilgileri.OfferList.Count).ToString()).PutAsync(stream);
-				string resim_url = await task.Child(kullanıcıbilgileri.UID)
-														 .Child("Offer Pictures")
-														 .Child((kullanıcıbilgileri.OfferList.Count).ToString()).GetDownloadUrlAsync();
+                    await task.Child(kullanıcıbilgileri.UID).Child("Offer Pictures").Child((uniqueName).ToString()).PutAsync(stream);
+                    string resim_url = await task.Child(kullanıcıbilgileri.UID)
+                                                             .Child("Offer Pictures")
+                                                             .Child(uniqueName).GetDownloadUrlAsync();
 
 
-				string açıklama = teklif.aciklamatextbox.Text.Trim();
-                string fiyat = teklif.fiyattextbox.Text.Trim();
-                string ID = teklif.offerIDtext.Text.Trim();
-                kullanıcıbilgileri.OfferList.Add(new Offer(açıklama, fiyat, ID,resim_url));
-				await firebaseClient.Child("Users").Child(kullanıcıbilgileri.UID).PutAsync(kullanıcıbilgileri);
-				
+                    string açıklama = teklif.aciklamatextbox.Text.Trim();
+                    string fiyat = teklif.fiyattextbox.Text.Trim();
+                    string ID = uniqueName;
+                    kullanıcıbilgileri.OfferList.Add(new Offer(açıklama, fiyat, ID, resim_url));
+                    await firebaseClient.Child("Users").Child(kullanıcıbilgileri.UID).PutAsync(kullanıcıbilgileri);
 
-				flowLayoutPanel1.Controls.Clear();
-				Profilekranı_Load(this, new EventArgs());
-				teklif.Close();
+
+                    flowLayoutPanel1.Controls.Clear();
+                    Profilekranı_Load(this, new EventArgs());
+                    teklif.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("En fazla 5 teklif verebilirsiniz!");
             }
         }
 
@@ -93,15 +102,15 @@ namespace Ticaret_Uygulaması
 
             for(int i = 0; i < kullanıcıbilgileri._offerList.Count;i++)
             {
-                var offerblock = new snglofferblock(kullanıcıbilgileri,firebaseClient);
+                var offerblock = new snglofferblock(userCredential, ayarlar,kullanıcıbilgileri, firebaseClient, list[i].offerId);
+                offerblock.SilBtn.Visible = true;
+				offerblock.SilBtn.Click += SilBtn_Resize;
                 offerblock.sngltextbox1.Text = list[i].açıklama;
                 offerblock.sngltextbox2.Text = list[i].fiyat;
 
 				try
 				{
-					string resim_url = await task.Child(kullanıcıbilgileri.UID)
-                                                 .Child("Offer Pictures")
-                                                 .Child((i).ToString()).GetDownloadUrlAsync();
+					string resim_url = list[i].resimUrl;
 
 					WebClient istemci = new WebClient();
 					Stream raw_dosya = istemci.OpenRead(resim_url);
@@ -120,10 +129,15 @@ namespace Ticaret_Uygulaması
             }
             paramik.Enabled = false;
             this.paramik.Text = kullanıcıbilgileri.Money;
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
+		private void SilBtn_Resize(object sender, EventArgs e)
+		{
+      
+			    Profilekranı_Load(this, new EventArgs()); 
+		}
+
+		private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }

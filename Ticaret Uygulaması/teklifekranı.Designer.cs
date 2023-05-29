@@ -35,8 +35,6 @@
 			this.fiyattxt = new System.Windows.Forms.Label();
 			this.fiyattextbox = new System.Windows.Forms.TextBox();
 			this.tamambtn = new System.Windows.Forms.Button();
-			this.offerID = new System.Windows.Forms.Label();
-			this.offerIDtext = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.teklifresimbox)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -44,7 +42,7 @@
 			// 
 			this.teklifresimbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.teklifresimbox.Location = new System.Drawing.Point(105, 15);
-			this.teklifresimbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.teklifresimbox.Margin = new System.Windows.Forms.Padding(4);
 			this.teklifresimbox.Name = "teklifresimbox";
 			this.teklifresimbox.Size = new System.Drawing.Size(277, 240);
 			this.teklifresimbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -76,7 +74,7 @@
 			// aciklamatextbox
 			// 
 			this.aciklamatextbox.Location = new System.Drawing.Point(105, 267);
-			this.aciklamatextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.aciklamatextbox.Margin = new System.Windows.Forms.Padding(4);
 			this.aciklamatextbox.Name = "aciklamatextbox";
 			this.aciklamatextbox.Size = new System.Drawing.Size(132, 22);
 			this.aciklamatextbox.TabIndex = 3;
@@ -94,7 +92,7 @@
 			// fiyattextbox
 			// 
 			this.fiyattextbox.Location = new System.Drawing.Point(105, 316);
-			this.fiyattextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.fiyattextbox.Margin = new System.Windows.Forms.Padding(4);
 			this.fiyattextbox.Name = "fiyattextbox";
 			this.fiyattextbox.Size = new System.Drawing.Size(132, 22);
 			this.fiyattextbox.TabIndex = 5;
@@ -102,7 +100,7 @@
 			// tamambtn
 			// 
 			this.tamambtn.Location = new System.Drawing.Point(283, 310);
-			this.tamambtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tamambtn.Margin = new System.Windows.Forms.Padding(4);
 			this.tamambtn.Name = "tamambtn";
 			this.tamambtn.Size = new System.Drawing.Size(100, 28);
 			this.tamambtn.TabIndex = 6;
@@ -110,31 +108,11 @@
 			this.tamambtn.UseVisualStyleBackColor = true;
 			this.tamambtn.Click += new System.EventHandler(this.tamambtn_Click);
 			// 
-			// offerID
-			// 
-			this.offerID.AutoSize = true;
-			this.offerID.Location = new System.Drawing.Point(43, 358);
-			this.offerID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.offerID.Name = "offerID";
-			this.offerID.Size = new System.Drawing.Size(20, 16);
-			this.offerID.TabIndex = 8;
-			this.offerID.Text = "ID";
-			// 
-			// offerIDtext
-			// 
-			this.offerIDtext.Location = new System.Drawing.Point(105, 358);
-			this.offerIDtext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.offerIDtext.Name = "offerIDtext";
-			this.offerIDtext.Size = new System.Drawing.Size(132, 22);
-			this.offerIDtext.TabIndex = 9;
-			// 
 			// teklifekranı
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(441, 425);
-			this.Controls.Add(this.offerIDtext);
-			this.Controls.Add(this.offerID);
 			this.Controls.Add(this.tamambtn);
 			this.Controls.Add(this.fiyattextbox);
 			this.Controls.Add(this.fiyattxt);
@@ -142,7 +120,7 @@
 			this.Controls.Add(this.resimtxt);
 			this.Controls.Add(this.aciklamatxt);
 			this.Controls.Add(this.teklifresimbox);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "teklifekranı";
 			this.Text = "teklifekranı";
 			((System.ComponentModel.ISupportInitialize)(this.teklifresimbox)).EndInit();
@@ -160,7 +138,5 @@
         public System.Windows.Forms.Label fiyattxt;
         public System.Windows.Forms.TextBox fiyattextbox;
         public System.Windows.Forms.Button tamambtn;
-        private System.Windows.Forms.Label offerID;
-        public System.Windows.Forms.TextBox offerIDtext;
     }
 }
