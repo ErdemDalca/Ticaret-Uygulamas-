@@ -101,6 +101,7 @@ namespace Ticaret_Uygulaması
         {
             var yüklemeEkranı = new YüklemeEkranı();
             yüklemeEkranı.Location = Location;
+            yüklemeEkranı.pictureBox1.Visible = false;
             yüklemeEkranı.Show();
             var list = kullanıcıbilgileri._offerList;
             this.paramik.Text = kullanıcıbilgileri.Money;
@@ -189,6 +190,7 @@ namespace Ticaret_Uygulaması
         private void paraeklebtn_Click(object sender, EventArgs e)
         {
             var smenusu = new satinalmamenusu();
+            smenusu.Location = Location;
             smenusu.satinal.Click += Satinal_Click;
             smenusu.satinal2.Click += Satinal2_Click;
             smenusu.satinal3.Click += Satinal3_Click;

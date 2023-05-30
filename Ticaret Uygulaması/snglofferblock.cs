@@ -74,8 +74,7 @@ namespace Ticaret_Uygulaması
 
             var data = await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").OnceAsJsonAsync();
             string dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(data);
-            
-            if (Int32.Parse(dataAsClass) <= 0)
+            if ((Int32.Parse(dataAsClass) - Int32.Parse(sngltextbox2.Text)) <= 0)
             {
                 MessageBox.Show("para yetersiz");
             }
