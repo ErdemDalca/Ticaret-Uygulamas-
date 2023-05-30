@@ -36,9 +36,15 @@ namespace Ticaret_Uygulaması
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            resimtxt.Visible = false;
             OpenFileDialog openfiledialog = new OpenFileDialog();
             if (openfiledialog.ShowDialog() == DialogResult.OK)
             { teklifresimbox.ImageLocation = openfiledialog.FileName; }
+            else
+            {
+                if(teklifresimbox.Image == null)
+				    resimtxt.Visible = true;
+			}
         }
 
 		private void tamambtn_Click(object sender, EventArgs e)

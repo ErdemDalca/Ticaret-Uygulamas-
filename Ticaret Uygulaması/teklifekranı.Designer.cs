@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(teklifekranı));
 			this.teklifresimbox = new System.Windows.Forms.PictureBox();
 			this.aciklamatxt = new System.Windows.Forms.Label();
 			this.resimtxt = new System.Windows.Forms.Label();
@@ -40,8 +41,9 @@
 			// 
 			// teklifresimbox
 			// 
+			this.teklifresimbox.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.teklifresimbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.teklifresimbox.Location = new System.Drawing.Point(105, 15);
+			this.teklifresimbox.Location = new System.Drawing.Point(82, 13);
 			this.teklifresimbox.Margin = new System.Windows.Forms.Padding(4);
 			this.teklifresimbox.Name = "teklifresimbox";
 			this.teklifresimbox.Size = new System.Drawing.Size(277, 240);
@@ -53,18 +55,19 @@
 			// aciklamatxt
 			// 
 			this.aciklamatxt.AutoSize = true;
-			this.aciklamatxt.Location = new System.Drawing.Point(5, 273);
+			this.aciklamatxt.Location = new System.Drawing.Point(11, 292);
 			this.aciklamatxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.aciklamatxt.Name = "aciklamatxt";
-			this.aciklamatxt.Size = new System.Drawing.Size(91, 16);
+			this.aciklamatxt.Size = new System.Drawing.Size(63, 16);
 			this.aciklamatxt.TabIndex = 1;
-			this.aciklamatxt.Text = "açıklama ekle";
+			this.aciklamatxt.Text = "Açıklama";
 			this.aciklamatxt.Click += new System.EventHandler(this.label1_Click);
 			// 
 			// resimtxt
 			// 
 			this.resimtxt.AutoSize = true;
-			this.resimtxt.Location = new System.Drawing.Point(17, 15);
+			this.resimtxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.resimtxt.Location = new System.Drawing.Point(184, 130);
 			this.resimtxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.resimtxt.Name = "resimtxt";
 			this.resimtxt.Size = new System.Drawing.Size(69, 16);
@@ -73,7 +76,7 @@
 			// 
 			// aciklamatextbox
 			// 
-			this.aciklamatextbox.Location = new System.Drawing.Point(105, 267);
+			this.aciklamatextbox.Location = new System.Drawing.Point(82, 289);
 			this.aciklamatextbox.Margin = new System.Windows.Forms.Padding(4);
 			this.aciklamatextbox.Name = "aciklamatextbox";
 			this.aciklamatextbox.Size = new System.Drawing.Size(132, 22);
@@ -82,16 +85,16 @@
 			// fiyattxt
 			// 
 			this.fiyattxt.AutoSize = true;
-			this.fiyattxt.Location = new System.Drawing.Point(17, 316);
+			this.fiyattxt.Location = new System.Drawing.Point(38, 341);
 			this.fiyattxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.fiyattxt.Name = "fiyattxt";
-			this.fiyattxt.Size = new System.Drawing.Size(71, 16);
+			this.fiyattxt.Size = new System.Drawing.Size(36, 16);
 			this.fiyattxt.TabIndex = 4;
-			this.fiyattxt.Text = "fiyat belirle";
+			this.fiyattxt.Text = "Fiyat";
 			// 
 			// fiyattextbox
 			// 
-			this.fiyattextbox.Location = new System.Drawing.Point(105, 316);
+			this.fiyattextbox.Location = new System.Drawing.Point(82, 338);
 			this.fiyattextbox.Margin = new System.Windows.Forms.Padding(4);
 			this.fiyattextbox.Name = "fiyattextbox";
 			this.fiyattextbox.Size = new System.Drawing.Size(132, 22);
@@ -99,12 +102,12 @@
 			// 
 			// tamambtn
 			// 
-			this.tamambtn.Location = new System.Drawing.Point(283, 310);
+			this.tamambtn.Location = new System.Drawing.Point(259, 335);
 			this.tamambtn.Margin = new System.Windows.Forms.Padding(4);
 			this.tamambtn.Name = "tamambtn";
 			this.tamambtn.Size = new System.Drawing.Size(100, 28);
 			this.tamambtn.TabIndex = 6;
-			this.tamambtn.Text = "ekle(kaydet)";
+			this.tamambtn.Text = "Kaydet";
 			this.tamambtn.UseVisualStyleBackColor = true;
 			this.tamambtn.Click += new System.EventHandler(this.tamambtn_Click);
 			// 
@@ -112,7 +115,8 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(441, 425);
+			this.BackColor = System.Drawing.Color.MediumSpringGreen;
+			this.ClientSize = new System.Drawing.Size(432, 403);
 			this.Controls.Add(this.tamambtn);
 			this.Controls.Add(this.fiyattextbox);
 			this.Controls.Add(this.fiyattxt);
@@ -120,6 +124,8 @@
 			this.Controls.Add(this.resimtxt);
 			this.Controls.Add(this.aciklamatxt);
 			this.Controls.Add(this.teklifresimbox);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "teklifekranı";
 			this.Text = "teklifekranı";
