@@ -50,7 +50,7 @@
 			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button2.ForeColor = System.Drawing.Color.Red;
 			this.button2.Location = new System.Drawing.Point(733, 38);
-			this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button2.Margin = new System.Windows.Forms.Padding(4);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(36, 36);
 			this.button2.TabIndex = 1;
@@ -62,7 +62,7 @@
 			this.flowLayoutPanel1.AutoScroll = true;
 			this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 106);
-			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(775, 629);
 			this.flowLayoutPanel1.TabIndex = 2;
@@ -95,7 +95,7 @@
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1.ForeColor = System.Drawing.Color.DarkGray;
 			this.button1.Location = new System.Drawing.Point(13, 25);
-			this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button1.Margin = new System.Windows.Forms.Padding(4);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(55, 55);
 			this.button1.TabIndex = 0;
@@ -104,8 +104,9 @@
 			// 
 			// profildüzenlemebutonu
 			// 
+			this.profildüzenlemebutonu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.profildüzenlemebutonu.Location = new System.Drawing.Point(1005, 297);
-			this.profildüzenlemebutonu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.profildüzenlemebutonu.Margin = new System.Windows.Forms.Padding(4);
 			this.profildüzenlemebutonu.Name = "profildüzenlemebutonu";
 			this.profildüzenlemebutonu.Size = new System.Drawing.Size(136, 28);
 			this.profildüzenlemebutonu.TabIndex = 5;
@@ -154,7 +155,7 @@
 			this.ProfilfotoğrafıAslı.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ProfilfotoğrafıAslı.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.ProfilfotoğrafıAslı.Location = new System.Drawing.Point(1041, 7);
-			this.ProfilfotoğrafıAslı.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.ProfilfotoğrafıAslı.Margin = new System.Windows.Forms.Padding(4);
 			this.ProfilfotoğrafıAslı.Name = "ProfilfotoğrafıAslı";
 			this.ProfilfotoğrafıAslı.Size = new System.Drawing.Size(100, 92);
 			this.ProfilfotoğrafıAslı.TabIndex = 9;
@@ -180,7 +181,7 @@
 			this.Controls.Add(this.button1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "Profilekranı";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Profilekranı";

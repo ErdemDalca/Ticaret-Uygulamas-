@@ -41,8 +41,9 @@ namespace Ticaret_Uygulaması
 
 			flowLayoutPanel1.BackColor = Color.FromArgb(128, Color.Green);
 			kullaciB.BackColor = Color.FromArgb(128, Color.Green);
+            profildüzenlemebutonu.BackColor = Color.FromArgb(128, Color.Green);
 
-            kullaciB.Parent.Size = panel1.Size;
+			kullaciB.Parent.Size = panel1.Size;
             this.kullanıcıbilgileri = kullanıcıbilgileri;
             this.userCredential = userCredential;
             this.firebaseClient = firebaseClient;
@@ -64,6 +65,7 @@ namespace Ticaret_Uygulaması
         private async void Tamambtn_Click(object sender, EventArgs e)
         {
             teklif.tamambtn.Enabled = false;
+            teklif.Visible = false;
 			if (kullanıcıbilgileri._offerList.Count() < 5)
             {
                 if (teklif.teklifresimbox.Image == null || teklif.fiyattextbox.Text == "" || teklif.aciklamatextbox.Text == "")
@@ -161,30 +163,32 @@ namespace Ticaret_Uygulaması
 
         private void profildüzenlemebutonu_Click(object sender, EventArgs e)
         {
-            profildüzenlemeekranı = new Profildüzenlemeekranı(kullanıcıbilgileri,userCredential,firebaseClient);
+			profildüzenlemebutonu.Enabled = false;
+			profildüzenlemeekranı = new Profildüzenlemeekranı(kullanıcıbilgileri,userCredential,firebaseClient);
             profildüzenlemeekranı.Düzenlebutton.Click += Düzenlebutton_Click;
             profildüzenlemeekranı.Show();
-        }
+			
+		}
 
         private async void Düzenlebutton_Click(object sender, EventArgs e)
         {
+            profildüzenlemeekranı.Enabled = false;
             kullanıcıbilgileri.Description = profildüzenlemeekranı.aciklamadegistirtxt.Text;
-            kullanıcıbilgileri.Name =  profildüzenlemeekranı.kullaniciadidegistxt.Text;
-            MessageBox.Show(profildüzenlemeekranı.kullaniciadidegistxt.Text+ profildüzenlemeekranı.aciklamadegistirtxt.Text);
+            kullanıcıbilgileri.Name =  profildüzenlemeekranı.NameChangeTxt.Text;
+            kullanıcıbilgileri.Lastname = profildüzenlemeekranı.SurnameChangeTxt.Text;
+            //MessageBox.Show(profildüzenlemeekranı.NameChangeTxt.Text+ profildüzenlemeekranı.aciklamadegistirtxt.Text);
             await firebaseClient.Child("Users").Child(kullanıcıbilgileri.UID).PutAsync(kullanıcıbilgileri);
          
             ProfilfotoğrafıAslı.BackgroundImage = profildüzenlemeekranı.Profilfotoğrafıpictureboxı.Image;
-            kullaciB.kullaniciAdiLbl.Text = profildüzenlemeekranı.kullaniciadidegistxt.Text;
+            kullaciB.kullaniciAdiLbl.Text = profildüzenlemeekranı.NameChangeTxt.Text;
             kullaciB.aciklamaLbl.Text   = profildüzenlemeekranı.aciklamadegistirtxt.Text;
             kullaciB.Refresh();
 
             var stream = File.Open(profildüzenlemeekranı.Profilfotoğrafıpictureboxı.ImageLocation, FileMode.Open);
 
             await task.Child(kullanıcıbilgileri.UID).Child("Profil fotoğrafı").PutAsync(stream);
-
-
-            profildüzenlemeekranı.Close();
-
+			profildüzenlemebutonu.Enabled = true;
+			profildüzenlemeekranı.Close();
         }
 
         private void paraeklebtn_Click(object sender, EventArgs e)

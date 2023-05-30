@@ -90,26 +90,33 @@ namespace Ticaret_Uygulaması
 
 		private async void SilBtn_Click(object sender, EventArgs e)
 		{
+			DialogResult dialogResult = MessageBox.Show("Teklifi silmek istiyormusunuz?", "Silme ekranı", MessageBoxButtons.YesNo);
+			if (dialogResult == DialogResult.Yes)
+			{
+				try
+				{
+					SilBtn.Enabled = false;
+
+					await firebaseStorage.Child(kullanıcıbilgileri.UID).Child("Offer Pictures").Child(offerID).DeleteAsync();
+					kullanıcıbilgileri._offerList.RemoveAll(x => x.offerId == offerID);
+
+					kullanıcıbilgileri.OfferList = kullanıcıbilgileri._offerList;
+					await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("_offerList").PutAsync(kullanıcıbilgileri._offerList);
+					await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("OfferList").PutAsync(kullanıcıbilgileri._offerList);
+
+				}
+				catch (Exception ex) { }
+				finally
+				{
+					panel.Controls.Remove(this);
+					SilBtn.Enabled = true;
+				}
+			}
+			else if (dialogResult == DialogResult.No)
+			{
+				//do something else
+			}
 			
-			try
-			{
-                panel.Enabled = false;
-
-				await firebaseStorage.Child(kullanıcıbilgileri.UID).Child("Offer Pictures").Child(offerID).DeleteAsync();
-				kullanıcıbilgileri._offerList.RemoveAll(x => x.offerId == offerID);
-
-				kullanıcıbilgileri.OfferList = kullanıcıbilgileri._offerList;
-				await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("_offerList").PutAsync(kullanıcıbilgileri._offerList);
-				await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("OfferList").PutAsync(kullanıcıbilgileri._offerList);
-
-			}
-			catch (Exception ex) { }
-			finally
-			{
-                panel.Controls.Remove(this);
-                MessageBox.Show("Yenilendi");
-                panel.Enabled = true;
-			}
 			
 		}
 

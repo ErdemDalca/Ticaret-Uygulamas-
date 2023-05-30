@@ -53,5 +53,10 @@ namespace Ticaret_Uygulaması
             { Profilfotoğrafıpictureboxı.ImageLocation = openfiledialog.FileName; }
            
         }
-    }
+
+		private void Profildüzenlemeekranı_Load(object sender, EventArgs e)
+		{
+
+		}
+	}
 }
