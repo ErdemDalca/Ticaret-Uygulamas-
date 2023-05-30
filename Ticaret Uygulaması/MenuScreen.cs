@@ -30,6 +30,7 @@ namespace Ticaret_Uygulaması
         public Ayarlar ayarlar;
         public IReadOnlyCollection<FirebaseObject<Kullanıcıbilgileri>> dataUsers;
         public List<OfferWithImage> dataofferlist;
+        public Bitmap profilfoto;
 
 
 		 public MenuScreen(UserCredential userCredential, Ayarlar ayarlar)
@@ -104,7 +105,8 @@ namespace Ticaret_Uygulaması
                     kayıt(kullanıcıbilgileri);
                 }
 
-                var Profil = new Profilekranı(kullanıcıbilgileri, userCredential, firebaseclient, ayarlar);
+                var Profil = new Profilekranı(profilfoto,kullanıcıbilgileri, userCredential, firebaseclient, ayarlar);
+
                 Profil.Show();
                 this.Hide();
                 Profil.button1.Click += Button1_Click;
@@ -124,7 +126,27 @@ namespace Ticaret_Uygulaması
             yüklemeEkranı.Location = Location;
             yüklemeEkranı.Show();
             this.Visible = false;
-            
+            try
+            {
+                string profilfoto_url = await task.Child(kullanıcıbilgileri.UID)
+                                                                 .Child("Profil fotoğrafı")
+                                                                 .GetDownloadUrlAsync();
+
+                WebClient istemci2 = new WebClient();
+                Stream raw_dosya2 = istemci2.OpenRead(profilfoto_url);
+                profilfoto = new Bitmap(raw_dosya2);
+                profileBtn.BackgroundImage = profilfoto;
+
+
+                raw_dosya2.Flush();
+                raw_dosya2.Close();
+                istemci2.Dispose();
+            }
+            catch (Exception ex2)
+            {
+
+            }
+
 
             dataofferlist.Clear();
 			dataUsers = await firebaseclient.Child("Users").OrderByKey().OnceAsync<Kullanıcıbilgileri>();

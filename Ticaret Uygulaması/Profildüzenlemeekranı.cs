@@ -30,5 +30,28 @@ namespace Ticaret_Uygulaması
             //MessageBox.Show(profildüzenlemeekranı.kullaniciadidegistxt.Text + profildüzenlemeekranı.aciklamadegistirtxt.Text);
             
         }
+
+        private void aciklamadegistirtxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Profilfotoğrafıpictureboxı_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openfiledialog = new OpenFileDialog();
+            if (openfiledialog.ShowDialog() == DialogResult.OK)
+            { Profilfotoğrafıpictureboxı.ImageLocation = openfiledialog.FileName; }
+           
+        }
     }
 }

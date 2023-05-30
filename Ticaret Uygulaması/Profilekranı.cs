@@ -30,8 +30,8 @@ namespace Ticaret_Uygulaması
         kullaniciBilgileriUC kullaciB;
         Ayarlar ayarlar;
         FirebaseStorage task;
-
-        public Profilekranı(Kullanıcıbilgileri kullanıcıbilgileri,UserCredential userCredential, FirebaseClient firebaseClient, Ayarlar ayarlar)
+        Bitmap profilfoto;
+        public Profilekranı(Bitmap profilfoto,Kullanıcıbilgileri kullanıcıbilgileri,UserCredential userCredential, FirebaseClient firebaseClient, Ayarlar ayarlar)
         {
             InitializeComponent();
 
@@ -46,7 +46,7 @@ namespace Ticaret_Uygulaması
             this.kullanıcıbilgileri = kullanıcıbilgileri;
             this.userCredential = userCredential;
             this.firebaseClient = firebaseClient;
-
+            this.profilfoto = profilfoto;
 			task = new FirebaseStorage(ayarlar.FSDomain, new FirebaseStorageOptions
 			{
 				AuthTokenAsyncFactory = () => userCredential.User.GetIdTokenAsync(),
@@ -99,9 +99,13 @@ namespace Ticaret_Uygulaması
 
         private async void Profilekranı_Load(object sender, EventArgs e)
         {
+            var yüklemeEkranı = new YüklemeEkranı();
+            yüklemeEkranı.Location = Location;
+            yüklemeEkranı.Show();
             var list = kullanıcıbilgileri._offerList;
-
-            for(int i = 0; i < kullanıcıbilgileri._offerList.Count;i++)
+            this.paramik.Text = kullanıcıbilgileri.Money;
+            ProfilfotoğrafıAslı.BackgroundImage = profilfoto;
+            for (int i = 0; i < kullanıcıbilgileri._offerList.Count;i++)
             {
                 var offerblock = new snglofferblock(userCredential, ayarlar,kullanıcıbilgileri, firebaseClient,flowLayoutPanel1, list[i].offerId);
                 offerblock.SilBtn.Visible = true;
@@ -129,7 +133,7 @@ namespace Ticaret_Uygulaması
 				flowLayoutPanel1.Controls.Add(offerblock);
             }
             paramik.Enabled = false;
-            this.paramik.Text = kullanıcıbilgileri.Money;
+            yüklemeEkranı.Close();
         }
 
 		private void SilBtn_Resize(object sender, EventArgs e)
@@ -167,10 +171,16 @@ namespace Ticaret_Uygulaması
             kullanıcıbilgileri.Name =  profildüzenlemeekranı.kullaniciadidegistxt.Text;
             MessageBox.Show(profildüzenlemeekranı.kullaniciadidegistxt.Text+ profildüzenlemeekranı.aciklamadegistirtxt.Text);
             await firebaseClient.Child("Users").Child(kullanıcıbilgileri.UID).PutAsync(kullanıcıbilgileri);
-            
+         
+            ProfilfotoğrafıAslı.BackgroundImage = profildüzenlemeekranı.Profilfotoğrafıpictureboxı.Image;
             kullaciB.kullaniciAdiLbl.Text = profildüzenlemeekranı.kullaniciadidegistxt.Text;
             kullaciB.aciklamaLbl.Text   = profildüzenlemeekranı.aciklamadegistirtxt.Text;
             kullaciB.Refresh();
+
+            var stream = File.Open(profildüzenlemeekranı.Profilfotoğrafıpictureboxı.ImageLocation, FileMode.Open);
+
+            await task.Child(kullanıcıbilgileri.UID).Child("Profil fotoğrafı").PutAsync(stream);
+
 
             profildüzenlemeekranı.Close();
 
@@ -246,5 +256,7 @@ namespace Ticaret_Uygulaması
         {
             await firebaseClient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").PutAsync(paramik.Text);
         }
+
+       
     }
 }

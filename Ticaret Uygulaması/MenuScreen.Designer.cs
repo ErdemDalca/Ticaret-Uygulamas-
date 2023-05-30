@@ -60,7 +60,7 @@
             "azalan",
             "artan"});
             this.Sıralamafiltresi.Location = new System.Drawing.Point(385, 58);
-            this.Sıralamafiltresi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Sıralamafiltresi.Margin = new System.Windows.Forms.Padding(2);
             this.Sıralamafiltresi.Name = "Sıralamafiltresi";
             this.Sıralamafiltresi.Size = new System.Drawing.Size(152, 21);
             this.Sıralamafiltresi.TabIndex = 1;
@@ -72,7 +72,7 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 87);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(583, 510);
             this.flowLayoutPanel1.TabIndex = 2;
@@ -84,10 +84,10 @@
             this.profileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.profileBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.profileBtn.Location = new System.Drawing.Point(9, 11);
-            this.profileBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.profileBtn.Location = new System.Drawing.Point(3, 8);
+            this.profileBtn.Margin = new System.Windows.Forms.Padding(2);
             this.profileBtn.Name = "profileBtn";
-            this.profileBtn.Size = new System.Drawing.Size(45, 49);
+            this.profileBtn.Size = new System.Drawing.Size(67, 71);
             this.profileBtn.TabIndex = 4;
             this.profileBtn.UseVisualStyleBackColor = false;
             this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
@@ -98,7 +98,7 @@
             this.yenilemeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.yenilemeBtn.ForeColor = System.Drawing.Color.Black;
             this.yenilemeBtn.Location = new System.Drawing.Point(548, 41);
-            this.yenilemeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.yenilemeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.yenilemeBtn.Name = "yenilemeBtn";
             this.yenilemeBtn.Size = new System.Drawing.Size(38, 41);
             this.yenilemeBtn.TabIndex = 5;
@@ -135,8 +135,8 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-		private System.Windows.Forms.Button profileBtn;
 		private System.Windows.Forms.Button yenilemeBtn;
         public System.Windows.Forms.ComboBox Sıralamafiltresi;
+        public System.Windows.Forms.Button profileBtn;
     }
 }
