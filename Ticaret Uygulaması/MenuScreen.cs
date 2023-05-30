@@ -90,23 +90,28 @@ namespace Ticaret_Uygulaması
 
 		private async void profileBtn_Click(object sender, EventArgs e)
 		{
-            
-            var data = await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).OnceAsJsonAsync();
-		
-			Kullanıcıbilgileri dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<Kullanıcıbilgileri>(data);
-            if (dataAsClass == null)
-                kayıt(kullanıcıbilgileri);
-            else
+            profileBtn.Enabled = false;
+            try
             {
-                kullanıcıbilgileri = dataAsClass;
-				kayıt(kullanıcıbilgileri);
-			}
-            
-			var Profil = new Profilekranı(kullanıcıbilgileri, userCredential, firebaseclient,ayarlar);
-			Profil.Show();
-            this.Hide();
-            Profil.button1.Click += Button1_Click;
-        }
+                var data = await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).OnceAsJsonAsync();
+
+                Kullanıcıbilgileri dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<Kullanıcıbilgileri>(data);
+                if (dataAsClass == null)
+                    kayıt(kullanıcıbilgileri);
+                else
+                {
+                    kullanıcıbilgileri = dataAsClass;
+                    kayıt(kullanıcıbilgileri);
+                }
+
+                var Profil = new Profilekranı(kullanıcıbilgileri, userCredential, firebaseclient, ayarlar);
+                Profil.Show();
+                this.Hide();
+                Profil.button1.Click += Button1_Click;
+            }
+            catch (Exception ex) {}
+			profileBtn.Enabled = true;
+		}
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -162,7 +167,7 @@ namespace Ticaret_Uygulaması
 			flowLayoutPanel1.Controls.Clear();
 			foreach (var offer in dataofferlist)
             {
-				var sngloffer = new snglofferblock(userCredential, ayarlar, kullanıcıbilgileri,firebaseclient);
+				var sngloffer = new snglofferblock(userCredential, ayarlar, kullanıcıbilgileri,firebaseclient,flowLayoutPanel1);
                 sngloffer.satinal.Visible = true;
 				sngloffer.sngltextbox1.Text = offer.offer.açıklama;
 				sngloffer.sngltextbox2.Text = offer.offer.fiyat;

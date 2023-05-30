@@ -63,6 +63,7 @@ namespace Ticaret_Uygulaması
 
         private async void Tamambtn_Click(object sender, EventArgs e)
         {
+            teklif.tamambtn.Enabled = false;
 			if (kullanıcıbilgileri._offerList.Count() < 5)
             {
                 if (teklif.teklifresimbox.Image == null || teklif.fiyattextbox.Text == "" || teklif.aciklamatextbox.Text == "")
@@ -102,7 +103,7 @@ namespace Ticaret_Uygulaması
 
             for(int i = 0; i < kullanıcıbilgileri._offerList.Count;i++)
             {
-                var offerblock = new snglofferblock(userCredential, ayarlar,kullanıcıbilgileri, firebaseClient, list[i].offerId);
+                var offerblock = new snglofferblock(userCredential, ayarlar,kullanıcıbilgileri, firebaseClient,flowLayoutPanel1, list[i].offerId);
                 offerblock.SilBtn.Visible = true;
 				offerblock.SilBtn.Click += SilBtn_Resize;
                 offerblock.sngltextbox1.Text = list[i].açıklama;
@@ -134,7 +135,7 @@ namespace Ticaret_Uygulaması
 		private void SilBtn_Resize(object sender, EventArgs e)
 		{
       
-			    Profilekranı_Load(this, new EventArgs()); 
+			    //Profilekranı_Load(this, new EventArgs()); 
 		}
 
 		private void button1_Click(object sender, EventArgs e)

@@ -23,8 +23,9 @@ namespace Ticaret_Uygulaması
         public  FirebaseClient firebaseclient;
         public Kullanıcıbilgileri kullanıcıbilgileri;
         public FirebaseStorage firebaseStorage;
+        public FlowLayoutPanel panel;
 
-        public snglofferblock(UserCredential userCredential, Ayarlar ayarlar, Kullanıcıbilgileri kullanıcıbilgileri,FirebaseClient firebaseclient, string offerID = "")
+        public snglofferblock(UserCredential userCredential, Ayarlar ayarlar, Kullanıcıbilgileri kullanıcıbilgileri,FirebaseClient firebaseclient,FlowLayoutPanel panel, string offerID = "")
         {            
             InitializeComponent();
 			SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -32,6 +33,7 @@ namespace Ticaret_Uygulaması
             this.kullanıcıbilgileri = kullanıcıbilgileri;
             this.firebaseclient = firebaseclient;
             this.offerID = offerID;
+            this.panel = panel;
 
 			try
 			{
@@ -92,7 +94,7 @@ namespace Ticaret_Uygulaması
 			
 			try
 			{
-				SilBtn.Enabled = false;
+                panel.Enabled = false;
 
 				await firebaseStorage.Child(kullanıcıbilgileri.UID).Child("Offer Pictures").Child(offerID).DeleteAsync();
 				kullanıcıbilgileri._offerList.RemoveAll(x => x.offerId == offerID);
@@ -102,10 +104,12 @@ namespace Ticaret_Uygulaması
 				await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("OfferList").PutAsync(kullanıcıbilgileri._offerList);
 
 			}
-			catch (Exception ex) { SilBtn.Enabled = true; }
+			catch (Exception ex) { }
 			finally
 			{
-				
+                panel.Controls.Remove(this);
+                MessageBox.Show("Yenilendi");
+                panel.Enabled = true;
 			}
 			
 		}
