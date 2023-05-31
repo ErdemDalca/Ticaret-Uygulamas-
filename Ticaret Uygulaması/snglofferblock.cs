@@ -73,7 +73,6 @@ namespace Ticaret_Uygulaması
         }
 		private async void  satinal_Click(object sender, EventArgs e)
         {
-			panel.BackColor = Color.FromKnownColor(KnownColor.Control);
 			panel.Enabled = false;
 
 			var data = await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").OnceAsJsonAsync();
@@ -91,7 +90,7 @@ namespace Ticaret_Uygulaması
                 await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").PutAsync(dataAsClass);
                 await firebaseclient.Child("Users").Child(Uıd).Child("Money").PutAsync(dataAsClass2);
             }
-
+			panel.Enabled = false;
 		}
 
 		private async void SilBtn_Click(object sender, EventArgs e)
