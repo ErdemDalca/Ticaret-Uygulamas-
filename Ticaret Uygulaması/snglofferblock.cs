@@ -90,7 +90,7 @@ namespace Ticaret_Uygulaması
                 await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").PutAsync(dataAsClass);
                 await firebaseclient.Child("Users").Child(Uıd).Child("Money").PutAsync(dataAsClass2);
             }
-			panel.Enabled = false;
+			panel.Enabled = true;
 		}
 
 		private async void SilBtn_Click(object sender, EventArgs e)
