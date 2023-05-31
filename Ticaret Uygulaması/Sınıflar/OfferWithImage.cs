@@ -11,11 +11,13 @@ namespace Ticaret_Uygulaması.Sınıflar
 	{
 		public Offer offer;
 		public Bitmap ımage;
+		public string Uıd;
 
-		public OfferWithImage(Offer offer, Bitmap ımage)
+		public OfferWithImage(Offer offer, Bitmap ımage, string Uıd="")
 		{
 			this.offer = offer;
 			this.ımage = ımage;
+			this.Uıd = Uıd;
 		}
 	}
 }

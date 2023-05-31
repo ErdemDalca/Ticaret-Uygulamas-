@@ -11,8 +11,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ticaret_Uygulaması.Controls;
 using Ticaret_Uygulaması.Sınıflar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace Ticaret_Uygulaması
 {
@@ -24,8 +26,9 @@ namespace Ticaret_Uygulaması
         public Kullanıcıbilgileri kullanıcıbilgileri;
         public FirebaseStorage firebaseStorage;
         public FlowLayoutPanel panel;
+		public string Uıd;
 
-        public snglofferblock(UserCredential userCredential, Ayarlar ayarlar, Kullanıcıbilgileri kullanıcıbilgileri,FirebaseClient firebaseclient,FlowLayoutPanel panel, string offerID = "")
+		public snglofferblock(UserCredential userCredential, Ayarlar ayarlar, Kullanıcıbilgileri kullanıcıbilgileri, FirebaseClient firebaseclient, FlowLayoutPanel panel, string Uıd = "", string offerID = "")
         {            
             InitializeComponent();
 			SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -34,6 +37,7 @@ namespace Ticaret_Uygulaması
             this.firebaseclient = firebaseclient;
             this.offerID = offerID;
             this.panel = panel;
+			this.Uıd = Uıd;
 
 			try
 			{
@@ -67,26 +71,28 @@ namespace Ticaret_Uygulaması
         {
 
         }
-
-        private async void  satinal_Click(object sender, EventArgs e)
+		private async void  satinal_Click(object sender, EventArgs e)
         {
-            satinal.Enabled = false;
+			panel.BackColor = Color.FromKnownColor(KnownColor.Control);
+			panel.Enabled = false;
 
-            var data = await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").OnceAsJsonAsync();
+			var data = await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").OnceAsJsonAsync();
             string dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(data);
-            if ((Int32.Parse(dataAsClass) - Int32.Parse(sngltextbox2.Text)) <= 0)
+			var data2 = await firebaseclient.Child("Users").Child(Uıd).Child("Money").OnceAsJsonAsync();
+			string dataAsClass2 = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(data2);
+			if ((Int32.Parse(dataAsClass) - Int32.Parse(sngltextbox2.Text)) <= 0)
             {
                 MessageBox.Show("para yetersiz");
             }
             else
             {
                 dataAsClass = (Int32.Parse(dataAsClass) - Int32.Parse(sngltextbox2.Text)).ToString();
+                dataAsClass2 = (Int32.Parse(dataAsClass2) + Int32.Parse(sngltextbox2.Text)).ToString();
                 await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").PutAsync(dataAsClass);
+                await firebaseclient.Child("Users").Child(Uıd).Child("Money").PutAsync(dataAsClass2);
             }
-            satinal.Enabled = true;
 
-
-        }
+		}
 
 		private async void SilBtn_Click(object sender, EventArgs e)
 		{

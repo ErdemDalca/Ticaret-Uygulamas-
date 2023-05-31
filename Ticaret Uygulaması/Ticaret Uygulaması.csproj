@@ -208,6 +208,12 @@
     <Compile Include="BackSpace.Designer.cs">
       <DependentUpon>BackSpace.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\BeklemeUc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BeklemeUc.Designer.cs">
+      <DependentUpon>BeklemeUc.cs</DependentUpon>
+    </Compile>
     <Compile Include="satinalmamenusu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +283,9 @@
     <EmbeddedResource Include="BackSpace.resx">
       <DependentUpon>BackSpace.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BeklemeUc.resx">
+      <DependentUpon>BeklemeUc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="satinalmamenusu.resx">
       <DependentUpon>satinalmamenusu.cs</DependentUpon>
     </EmbeddedResource>
@@ -338,8 +347,6 @@
     <None Include="Resources\mavi.jpg" />
     <None Include="Resources\indir.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

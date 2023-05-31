@@ -168,7 +168,8 @@ namespace Ticaret_Uygulaması
                             raw_dosya.Close();
                             istemci.Dispose();
 
-                            dataofferlist.Add(new OfferWithImage(offer, resim));
+                            
+                            dataofferlist.Add(new OfferWithImage(offer, resim,user.Object.UID));
                         }
                         catch (Exception ex) { }
 
@@ -189,13 +190,12 @@ namespace Ticaret_Uygulaması
 			flowLayoutPanel1.Controls.Clear();
 			foreach (var offer in dataofferlist)
             {
-				var sngloffer = new snglofferblock(userCredential, ayarlar, kullanıcıbilgileri,firebaseclient,flowLayoutPanel1);
+				var sngloffer = new snglofferblock(userCredential, ayarlar, kullanıcıbilgileri,firebaseclient,flowLayoutPanel1,offer.Uıd);
                 sngloffer.satinal.Visible = true;
 				sngloffer.sngltextbox1.Text = offer.offer.açıklama;
 				sngloffer.sngltextbox2.Text = offer.offer.fiyat;
                 sngloffer.snglpicturebox.Image = offer.ımage;
 				flowLayoutPanel1.Controls.Add(sngloffer);
-
 			}		
 		}
         
