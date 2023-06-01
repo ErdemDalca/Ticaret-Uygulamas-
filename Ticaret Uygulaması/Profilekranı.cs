@@ -31,6 +31,7 @@ namespace Ticaret_Uygulaması
         Ayarlar ayarlar;
         FirebaseStorage task;
         Bitmap profilfoto;
+        Envanter Envanterekranı;
         public Profilekranı(Bitmap profilfoto,Kullanıcıbilgileri kullanıcıbilgileri,UserCredential userCredential, FirebaseClient firebaseClient, Ayarlar ayarlar)
         {
             InitializeComponent();
@@ -61,7 +62,14 @@ namespace Ticaret_Uygulaması
             kullaciB.Refresh();
 
         }
+        private void Envanterbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Envanterekranı = new Envanter();
+            Envanterekranı.Show();
+            Envanterekranı.Acilcikis.Click += Acilcikis_Click;
 
+        }
         private async void Tamambtn_Click(object sender, EventArgs e)
         {
             teklif.tamambtn.Enabled = false;
@@ -169,6 +177,11 @@ namespace Ticaret_Uygulaması
             profildüzenlemeekranı.Show();
 			
 		}
+        
+        private void Acilcikis_Click(object sender, EventArgs e)
+        {
+            this.Show();
+        }
 
         private async void Düzenlebutton_Click(object sender, EventArgs e)
         {
@@ -263,6 +276,9 @@ namespace Ticaret_Uygulaması
             await firebaseClient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").PutAsync(paramik.Text);
         }
 
-       
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

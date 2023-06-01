@@ -214,6 +214,12 @@
     <Compile Include="Controls\BeklemeUc.Designer.cs">
       <DependentUpon>BeklemeUc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Envanter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Envanter.Designer.cs">
+      <DependentUpon>Envanter.cs</DependentUpon>
+    </Compile>
     <Compile Include="satinalmamenusu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\BeklemeUc.resx">
       <DependentUpon>BeklemeUc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Envanter.agq.resx">
+      <DependentUpon>Envanter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Envanter.resx">
+      <DependentUpon>Envanter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="satinalmamenusu.resx">
       <DependentUpon>satinalmamenusu.cs</DependentUpon>

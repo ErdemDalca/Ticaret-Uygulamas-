@@ -19,8 +19,12 @@ namespace Ticaret_Uygulaması
 			list.Add("Emin, Muhammed isminin kullanılmasından hoşlanmaz");
 			list.Add("Selim aslında spora gitmiyor");
 			list.Add("Yükleniyor…");
-			list.Add("Lütfen bekleyin…");
-			list.Add("Yükleniyor, lütfen bekleyin…");
+            list.Add("Erdem bizden habersiz iş yapıyor");
+            list.Add("Yükleniyor, lütfen bekleyin…");
+            list.Add("Yükleye-medic");
+            list.Add("Deniyoruz");
+
+
 
             Random rastgele = new Random();
 			int index = rastgele.Next(list.Count); 
