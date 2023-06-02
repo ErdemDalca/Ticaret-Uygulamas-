@@ -27,8 +27,9 @@ namespace Ticaret_Uygulaması
         public FirebaseStorage firebaseStorage;
         public FlowLayoutPanel panel;
 		public string Uıd;
-
-		public snglofferblock(UserCredential userCredential, Ayarlar ayarlar, Kullanıcıbilgileri kullanıcıbilgileri, FirebaseClient firebaseclient, FlowLayoutPanel panel, string Uıd = "", string offerID = "")
+		public Offer offer;
+		
+		public snglofferblock(UserCredential userCredential, Ayarlar ayarlar, Kullanıcıbilgileri kullanıcıbilgileri, FirebaseClient firebaseclient, FlowLayoutPanel panel, string Uıd = "", string offerID = "",Offer offer = null)
         {            
             InitializeComponent();
 			SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -38,6 +39,7 @@ namespace Ticaret_Uygulaması
             this.offerID = offerID;
             this.panel = panel;
 			this.Uıd = Uıd;
+			this.offer = offer;
 
 			try
 			{
@@ -88,6 +90,8 @@ namespace Ticaret_Uygulaması
                 dataAsClass = (Int32.Parse(dataAsClass) - Int32.Parse(sngltextbox2.Text)).ToString();
                 dataAsClass2 = (Int32.Parse(dataAsClass2) + Int32.Parse(sngltextbox2.Text)).ToString();
                 await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").PutAsync(dataAsClass);
+				kullanıcıbilgileri._envanter.Add(offer);
+                await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Envanter").PutAsync(kullanıcıbilgileri._envanter);
                 await firebaseclient.Child("Users").Child(Uıd).Child("Money").PutAsync(dataAsClass2);
             }
 			panel.Enabled = true;
@@ -110,7 +114,7 @@ namespace Ticaret_Uygulaması
 					await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("OfferList").PutAsync(kullanıcıbilgileri._offerList);
 
 				}
-				catch (Exception ex) { }
+				catch (Exception ex) { MessageBox.Show(ex.ToString()); }
 				finally
 				{
 					panel.Controls.Remove(this);

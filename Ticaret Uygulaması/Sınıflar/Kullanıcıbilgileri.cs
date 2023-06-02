@@ -22,7 +22,15 @@ namespace Ticaret_Uygulaması.Sınıflar
 		}
 
 		public List<Offer> _offerList = new List<Offer>();
-		
+
+		public List<Offer> Envanter
+		{
+			get { return _envanter; }
+			set { _envanter = value; }
+		}
+
+		public List<Offer> _envanter = new List<Offer>();
+
 		public Kullanıcıbilgileri(string UID, string Name, string Description, string Lastname)
 		{
 			this.UID = UID;

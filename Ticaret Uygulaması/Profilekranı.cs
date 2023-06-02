@@ -43,17 +43,22 @@ namespace Ticaret_Uygulaması
 			flowLayoutPanel1.BackColor = Color.FromArgb(128, Color.Green);
 			kullaciB.BackColor = Color.FromArgb(128, Color.Green);
             profildüzenlemebutonu.BackColor = Color.FromArgb(128, Color.Green);
+			Envanterbutton.BackColor = Color.FromArgb(200, Color.Chocolate);
 
 			kullaciB.Parent.Size = panel1.Size;
             this.kullanıcıbilgileri = kullanıcıbilgileri;
             this.userCredential = userCredential;
             this.firebaseClient = firebaseClient;
             this.profilfoto = profilfoto;
-			task = new FirebaseStorage(ayarlar.FSDomain, new FirebaseStorageOptions
-			{
-				AuthTokenAsyncFactory = () => userCredential.User.GetIdTokenAsync(),
-				ThrowOnCancel = true,
-			});
+            try
+            {
+                task = new FirebaseStorage(ayarlar.FSDomain, new FirebaseStorageOptions
+                {
+                    AuthTokenAsyncFactory = () => userCredential.User.GetIdTokenAsync(),
+                    ThrowOnCancel = true,
+                });
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
 
             kullaciB.kullaniciAdiLbl.Text = kullanıcıbilgileri.Name;
             
@@ -65,7 +70,7 @@ namespace Ticaret_Uygulaması
         private void Envanterbutton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Envanterekranı = new Envanter();
+            Envanterekranı = new Envanter(userCredential,ayarlar,kullanıcıbilgileri,firebaseClient);
             Envanterekranı.Show();
             Envanterekranı.Acilcikis.Click += Acilcikis_Click;
 
@@ -118,7 +123,7 @@ namespace Ticaret_Uygulaması
             ProfilfotoğrafıAslı.BackgroundImage = profilfoto;
             for (int i = 0; i < kullanıcıbilgileri._offerList.Count;i++)
             {
-                var offerblock = new snglofferblock(userCredential, ayarlar,kullanıcıbilgileri, firebaseClient,flowLayoutPanel1, list[i].offerId);
+                var offerblock = new snglofferblock(userCredential, ayarlar,kullanıcıbilgileri, firebaseClient,flowLayoutPanel1,"", list[i].offerId);
                 offerblock.SilBtn.Visible = true;
 				offerblock.SilBtn.Click += SilBtn_Resize;
                 offerblock.sngltextbox1.Text = list[i].açıklama;

@@ -190,7 +190,7 @@ namespace Ticaret_Uygulaması
 			flowLayoutPanel1.Controls.Clear();
 			foreach (var offer in dataofferlist)
             {
-				var sngloffer = new snglofferblock(userCredential, ayarlar, kullanıcıbilgileri,firebaseclient,flowLayoutPanel1,offer.Uıd);
+				var sngloffer = new snglofferblock(userCredential, ayarlar, kullanıcıbilgileri,firebaseclient,flowLayoutPanel1,offer.Uıd,"",offer.offer);
                 sngloffer.satinal.Visible = true;
 				sngloffer.sngltextbox1.Text = offer.offer.açıklama;
 				sngloffer.sngltextbox2.Text = offer.offer.fiyat;

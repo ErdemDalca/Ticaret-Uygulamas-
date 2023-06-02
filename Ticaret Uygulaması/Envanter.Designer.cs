@@ -28,45 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Envanter));
-            this.EnvanterTxt = new System.Windows.Forms.Label();
-            this.Acilcikis = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.SuspendLayout();
-            // 
-            // EnvanterTxt
-            // 
-            resources.ApplyResources(this.EnvanterTxt, "EnvanterTxt");
-            this.EnvanterTxt.BackColor = System.Drawing.Color.Transparent;
-            this.EnvanterTxt.Name = "EnvanterTxt";
-            // 
-            // Acilcikis
-            // 
-            this.Acilcikis.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.Acilcikis, "Acilcikis");
-            this.Acilcikis.ForeColor = System.Drawing.Color.DarkGray;
-            this.Acilcikis.Name = "Acilcikis";
-            this.Acilcikis.UseVisualStyleBackColor = false;
-            this.Acilcikis.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            // 
-            // Envanter
-            // 
-            resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.Acilcikis);
-            this.Controls.Add(this.EnvanterTxt);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Envanter";
-            this.ShowInTaskbar = false;
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Envanter));
+			this.EnvanterTxt = new System.Windows.Forms.Label();
+			this.Acilcikis = new System.Windows.Forms.Button();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.SuspendLayout();
+			// 
+			// EnvanterTxt
+			// 
+			resources.ApplyResources(this.EnvanterTxt, "EnvanterTxt");
+			this.EnvanterTxt.BackColor = System.Drawing.Color.Transparent;
+			this.EnvanterTxt.ForeColor = System.Drawing.SystemColors.ControlLight;
+			this.EnvanterTxt.Name = "EnvanterTxt";
+			// 
+			// Acilcikis
+			// 
+			this.Acilcikis.BackColor = System.Drawing.Color.Transparent;
+			resources.ApplyResources(this.Acilcikis, "Acilcikis");
+			this.Acilcikis.ForeColor = System.Drawing.Color.DarkGray;
+			this.Acilcikis.Name = "Acilcikis";
+			this.Acilcikis.UseVisualStyleBackColor = false;
+			this.Acilcikis.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// flowLayoutPanel1
+			// 
+			resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
+			this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			// 
+			// Envanter
+			// 
+			resources.ApplyResources(this, "$this");
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.flowLayoutPanel1);
+			this.Controls.Add(this.Acilcikis);
+			this.Controls.Add(this.EnvanterTxt);
+			this.DoubleBuffered = true;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Name = "Envanter";
+			this.ShowInTaskbar = false;
+			this.Load += new System.EventHandler(this.Envanter_Load);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
