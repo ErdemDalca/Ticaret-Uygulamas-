@@ -94,7 +94,7 @@ namespace Ticaret_Uygulaması
                                                              .Child(uniqueName).GetDownloadUrlAsync();
 
 
-                    string açıklama = teklif.aciklamatextbox.Text.Trim();
+					string açıklama = teklif.aciklamatextbox.Text.Trim();
                     string fiyat = teklif.fiyattextbox.Text.Trim();
                     string ID = uniqueName;
                     kullanıcıbilgileri.OfferList.Add(new Offer(açıklama, fiyat, ID, resim_url));

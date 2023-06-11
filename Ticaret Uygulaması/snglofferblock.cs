@@ -81,6 +81,12 @@ namespace Ticaret_Uygulaması
             string dataAsClass = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(data);
 			var data2 = await firebaseclient.Child("Users").Child(Uıd).Child("Money").OnceAsJsonAsync();
 			string dataAsClass2 = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(data2);
+			var envanterData = await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("_envanter").OnceAsJsonAsync();
+			List<Offer> envanter = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Offer>>(envanterData);
+			if (dataAsClass == null)
+				dataAsClass = "0";
+			if (dataAsClass2 == null)
+				dataAsClass2 = "0";
 			if ((Int32.Parse(dataAsClass) - Int32.Parse(sngltextbox2.Text)) <= 0)
             {
                 MessageBox.Show("para yetersiz");
@@ -90,8 +96,9 @@ namespace Ticaret_Uygulaması
                 dataAsClass = (Int32.Parse(dataAsClass) - Int32.Parse(sngltextbox2.Text)).ToString();
                 dataAsClass2 = (Int32.Parse(dataAsClass2) + Int32.Parse(sngltextbox2.Text)).ToString();
                 await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").PutAsync(dataAsClass);
+				kullanıcıbilgileri._envanter = envanter;
 				kullanıcıbilgileri._envanter.Add(offer);
-                await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Envanter").PutAsync(kullanıcıbilgileri._envanter);
+                await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("_envanter").PutAsync(kullanıcıbilgileri._envanter);
                 await firebaseclient.Child("Users").Child(Uıd).Child("Money").PutAsync(dataAsClass2);
             }
 			panel.Enabled = true;
