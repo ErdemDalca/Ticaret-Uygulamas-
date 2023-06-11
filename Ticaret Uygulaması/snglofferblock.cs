@@ -96,7 +96,10 @@ namespace Ticaret_Uygulaması
                 dataAsClass = (Int32.Parse(dataAsClass) - Int32.Parse(sngltextbox2.Text)).ToString();
                 dataAsClass2 = (Int32.Parse(dataAsClass2) + Int32.Parse(sngltextbox2.Text)).ToString();
                 await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("Money").PutAsync(dataAsClass);
+				if(envanter == null)
+					envanter = new List<Offer>();
 				kullanıcıbilgileri._envanter = envanter;
+
 				kullanıcıbilgileri._envanter.Add(offer);
                 await firebaseclient.Child("Users").Child(kullanıcıbilgileri.UID).Child("_envanter").PutAsync(kullanıcıbilgileri._envanter);
                 await firebaseclient.Child("Users").Child(Uıd).Child("Money").PutAsync(dataAsClass2);

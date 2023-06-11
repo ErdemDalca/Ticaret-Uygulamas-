@@ -61,19 +61,12 @@ namespace Ticaret_Uygulaması
 				try
 				{
 					string resim_url;
-					if (list[i].resimUrl != null)
-					{
-						resim_url = list[i].resimUrl;
-					}
-					else
-					{
-						resim_url = "https://firebasestorage.googleapis.com/v0/b/ticaretuygulamasi-kutsanmis.appspot.com/o/404notfound.png?alt=media&token=1524ff58-f330-4935-9908-a089c9dcba7e";
-					}
+					
+					resim_url = list[i].resimUrl;
+					
 					WebClient istemci = new WebClient();
 					Stream raw_dosya = istemci.OpenRead(resim_url);
 					Bitmap resim = new Bitmap(raw_dosya);
-					
-					MessageBox.Show(resim.Width.ToString());
 					
 					
 					offerblock.snglpicturebox.Image = resim;
